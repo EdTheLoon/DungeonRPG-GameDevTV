@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 public partial class PlayerAttackState : PlayerState
@@ -55,6 +54,9 @@ public partial class PlayerAttackState : PlayerState
 
     private void PerformHit() 
     {
-        GD.Print("Perform hit!");
+        // Use ternary operator to determine which position the hitbox should be in.
+        Vector3 newHitboxPosition = characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
+        float distanceMultiplier = 0.75f;
+        characterNode.HitboxNode.Position = newHitboxPosition * distanceMultiplier;
     }
 }
