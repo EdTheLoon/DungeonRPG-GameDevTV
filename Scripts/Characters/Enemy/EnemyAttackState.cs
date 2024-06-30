@@ -14,31 +14,47 @@ public partial class EnemyAttackState : EnemyState
 
     protected override void EnterState()
     {
+        // Subscribe to signals
+        characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
         attackTimerNode.Timeout += HandleAttackTimerTimeout;
+
         Attack();
     }
 
 
     protected override void ExitState()
     {
+        // Unsubscribe from signals.
         attackTimerNode.Timeout -= HandleAttackTimerTimeout;
+        characterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
     }
 
     private void Attack()
     {
-        RandomNumberGenerator rng = new();        
+        RandomNumberGenerator rng = new();
         attackTimerNode.WaitTime = rng.RandfRange(minWaitTime, maxWaitTime);
         attackTimerNode.Start();
         characterNode.AnimPlayerNode.Play(GameConstants.ANIM_ATTACK);
     }
 
+    private void HandleAnimationFinished(StringName animName)
+    {
+        // Runs once an animation is finished. 
+        // Note: Because Idle animation is looping it never emits this signal.
+        // This signal will only be emitted at the end of the attack animation
+        characterNode.AnimPlayerNode.Play(GameConstants.ANIM_IDLE);
+    }
+
+
     private void HandleAttackTimerTimeout()
     {
         // If player is not in attack range then we should check if they're in
         // chasing range. If they're not in chase range then we will return to patrolling.
-        if (characterNode.AttackAreaNode.GetOverlappingBodies().Count == 0) {
+        if (characterNode.AttackAreaNode.GetOverlappingBodies().Count == 0)
+        {
             // Check whether the player is in chase range.
-            if (characterNode.ChaseAreaNode.GetOverlappingBodies().Count == 0) {
+            if (characterNode.ChaseAreaNode.GetOverlappingBodies().Count == 0)
+            {
                 // Chase the player
                 characterNode.StateMachineNode.SwitchState<EnemyReturnState>();
                 return;
@@ -47,7 +63,7 @@ public partial class EnemyAttackState : EnemyState
             characterNode.StateMachineNode.SwitchState<EnemyChaseState>();
             return;
         }
-        
+
         // Player is within attack range so keep attacking.
         Attack();
     }

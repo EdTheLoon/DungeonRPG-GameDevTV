@@ -1,11 +1,26 @@
+using System;
 using Godot;
 
 public partial class PlayerAttackState : PlayerState
 {
+
+    // Reference to the combo timer in editor
+    [Export] private Timer comboTimerNode;
+
     // Combat combo counters
     private int comboCounter = 1;
     private int minComboCount = 1;
     private int maxComboCount = 2;
+
+    public override void _Ready()
+    {
+        base._Ready();
+
+        // Subscribe to signals
+        // Use a lambda function so that we don't have to type unnecessary code
+        comboTimerNode.Timeout += () => comboCounter = 1;
+    }
+
 
     protected override void EnterState()
     {
@@ -20,6 +35,7 @@ public partial class PlayerAttackState : PlayerState
     {
         // Unsubscribe from signals for cleanup.
         characterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
+        comboTimerNode.Start();
     }
 
     private void HandleAnimationFinished(StringName animName)
