@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public abstract partial class Character : CharacterBody3D
@@ -9,6 +10,7 @@ public abstract partial class Character : CharacterBody3D
     [Export] public Sprite3D SpriteNode { get; private set; }
     [Export] public AnimationPlayer AnimPlayerNode { get; private set; }
     [Export] public StateMachine StateMachineNode { get; private set; }
+    [Export] public Area3D HurtboxNode { get; private set; }
 
     [ExportGroup("AI Nodes")]
     [Export] public Path3D PathNode { get; private set; }
@@ -20,6 +22,11 @@ public abstract partial class Character : CharacterBody3D
     public int pointIndex = 0;
 
     public Vector2 direction = new();
+
+    public override void _Ready()
+    {
+        HurtboxNode.AreaEntered += HandleHurtboxEntered;
+    }
 
     /// <summary>
     /// Flip's the character sprite horizontally to match movement direction
@@ -33,5 +40,10 @@ public abstract partial class Character : CharacterBody3D
         // Use conditional assignment to set this true or false.
         bool isMovingLeft = Velocity.X < 0;
         SpriteNode.FlipH = isMovingLeft;
+    }
+
+    private void HandleHurtboxEntered(Area3D area)
+    {
+        GD.Print($"{area.Name} hit"); // "area.Name + hit"
     }
 }
