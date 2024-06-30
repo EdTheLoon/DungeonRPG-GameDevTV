@@ -59,8 +59,14 @@ public abstract partial class Character : CharacterBody3D
     /// <param name="area">The area that triggered the signal.</param>
     private void HandleHurtboxEntered(Area3D area)
     {
+        // Get the health Stat and a reference to the character
         StatResource health = GetStatResource(Stat.Health);
-        GD.Print($"{area.Name} health: {health.StatValue}");
+        Character attacker = area.GetOwner<Character>();        
+        StatResource strength = attacker.GetStatResource(Stat.Strength);
+        // Apply damage by using the attacker's strength to decrease health.
+        health.StatValue -= strength.StatValue;
+        GD.Print($"Attacker Strength: {strength.StatValue}");
+        GD.Print($"Health: {health.StatValue}");
     }
 
     public StatResource GetStatResource(Stat stat)
