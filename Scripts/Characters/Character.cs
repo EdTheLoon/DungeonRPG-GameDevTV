@@ -1,5 +1,5 @@
-using System;
 using Godot;
+using System.Linq;
 
 public abstract partial class Character : CharacterBody3D
 {
@@ -53,8 +53,20 @@ public abstract partial class Character : CharacterBody3D
         SpriteNode.FlipH = isMovingLeft;
     }
 
+    /// <summary>
+    /// Handles the character hurtbox being triggered.
+    /// </summary>
+    /// <param name="area">The area that triggered the signal.</param>
     private void HandleHurtboxEntered(Area3D area)
     {
-        GD.Print($"{area.Name} hit"); // "area.Name + hit"
+        StatResource health = GetStatResource(Stat.Health);
+        GD.Print($"{area.Name} health: {health.StatValue}");
     }
+
+    public StatResource GetStatResource(Stat stat)
+    {
+        // Use Microsoft LINQ and lambda function to return the requested Stat.
+        return stats.Where((element) => element.StatType == stat).FirstOrDefault();
+    }
+
 }

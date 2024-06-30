@@ -1,4 +1,5 @@
 using Godot;
+using System.Linq;
 
 public partial class StateMachine : Node
 {
@@ -18,17 +19,8 @@ public partial class StateMachine : Node
     /// <typeparam name="T">The TYPE of the State to switch to.</typeparam>
     public void SwitchState<T>()
     {
-        // Instantiate a new empty Node. Iterate through the list of
-        // possible states and if there is a match then apply it to our 
-        // newState.
-        Node newState = null;
-        foreach (Node state in states)
-        {
-            if (state is T)
-            {
-                newState = state;
-            }
-        }
+        // Use Microsoft LINQ to check if the State is a valid possible state.
+        Node newState = states.Where((state) => state is T).FirstOrDefault();
 
         // Empty state checking
         if (newState == null) { return; }
