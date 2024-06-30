@@ -22,7 +22,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m5uhi")
 
-[node name="Start" type="VBoxContainer" parent="."]
+[node name="Start" type="VBoxContainer" parent="." node_paths=PackedStringArray("ButtonNode")]
+process_mode = 2
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -37,6 +38,7 @@ offset_bottom = 109.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ckhk7")
+ButtonNode = NodePath("Button")
 
 [node name="TextureRect" type="TextureRect" parent="Start"]
 layout_mode = 2
