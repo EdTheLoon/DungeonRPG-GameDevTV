@@ -57,7 +57,7 @@ public partial class PlayerAttackState : PlayerState
     {
         // Use ternary operator to determine which position the hitbox should be in.
         Vector3 newHitboxPosition = characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
-        float distanceMultiplier = 0.9f;
+        float distanceMultiplier = 1f;
         characterNode.HitboxNode.Position = newHitboxPosition * distanceMultiplier;
 
         // Enable the hitbox
