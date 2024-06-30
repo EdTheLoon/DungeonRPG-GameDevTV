@@ -135,6 +135,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("44_4onwx"), ExtResource("45_mptdu"), ExtResource("46_vo3hl"), ExtResource("47_wru3k"), ExtResource("48_wq3fi"), ExtResource("49_y6170"), ExtResource("50_r32hg"), ExtResource("51_n4kgs"), ExtResource("52_1a4je"), ExtResource("53_dei41"), ExtResource("54_p45x4"), ExtResource("55_uo6vs")]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_5ggvj"]
 resource_name = "Death"
@@ -266,7 +280,7 @@ AttackAreaNode = NodePath("StateAreas/AttackArea")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.004
 texture_filter = 0
-texture = ExtResource("2_l0kk8")
+texture = ExtResource("44_4onwx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite3D")

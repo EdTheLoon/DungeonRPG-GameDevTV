@@ -77,7 +77,7 @@ public abstract partial class Character : CharacterBody3D
         return stats.Where((element) => element.StatType == stat).FirstOrDefault();
     }
 
-    public void ToggleHitbox(bool flag) 
+    public void DisableHitbox(bool flag) 
     {
         HitboxShapeNode.Disabled = flag;
     }

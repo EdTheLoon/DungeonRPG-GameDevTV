@@ -1,4 +1,4 @@
-using System;
+using System.Linq;
 using Godot;
 
 public partial class EnemyAttackState : EnemyState
@@ -17,7 +17,6 @@ public partial class EnemyAttackState : EnemyState
         // Subscribe to signals
         characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
         attackTimerNode.Timeout += HandleAttackTimerTimeout;
-
         Attack();
     }
 
@@ -31,15 +30,21 @@ public partial class EnemyAttackState : EnemyState
 
     private void Attack()
     {
+        // Determine attack direction for hitbox        
+        Node3D target = characterNode.AttackAreaNode.GetOverlappingBodies().First();
+        Vector3 targetPosition = characterNode.GlobalPosition.DirectionTo(target.GlobalPosition);
+        characterNode.HitboxNode.Position = targetPosition;
+
+        // Flip sprite if Player is in different direction
+        characterNode.SpriteNode.FlipH = targetPosition.X >= 0 ? false : true;
+
+        // Random wait time after attacking
         RandomNumberGenerator rng = new();
         attackTimerNode.WaitTime = rng.RandfRange(minWaitTime, maxWaitTime);
         attackTimerNode.Start();
 
-        // Plays the Attack animation with no blend and 1.5x speed.
-        characterNode.AnimPlayerNode.Play(
-            GameConstants.ANIM_ATTACK,
-            -1,
-            1.5f);
+        // Plays the Attack animation
+        characterNode.AnimPlayerNode.Play(GameConstants.ANIM_ATTACK);
     }
 
     private void HandleAnimationFinished(StringName animName)
@@ -48,8 +53,8 @@ public partial class EnemyAttackState : EnemyState
         // Note: Because Idle animation is looping it never emits this signal.
         // This signal will only be emitted at the end of the attack animation
         characterNode.AnimPlayerNode.Play(GameConstants.ANIM_IDLE);
+        characterNode.DisableHitbox(true);
     }
-
 
     private void HandleAttackTimerTimeout()
     {
@@ -64,12 +69,17 @@ public partial class EnemyAttackState : EnemyState
                 characterNode.StateMachineNode.SwitchState<EnemyReturnState>();
                 return;
             }
-            // Attack
+            // Chase
             characterNode.StateMachineNode.SwitchState<EnemyChaseState>();
             return;
         }
 
         // Player is within attack range so keep attacking.
         Attack();
+    }
+
+    private void PerformHit() 
+    {        
+        characterNode.DisableHitbox(false);
     }
 }

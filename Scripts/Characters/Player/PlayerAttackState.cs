@@ -49,7 +49,7 @@ public partial class PlayerAttackState : PlayerState
         comboCounter = Mathf.Wrap(comboCounter, minComboCount, maxComboCount+1);
         
         // Switch to PlayerIdleState and disable hitbox
-        characterNode.ToggleHitbox(true);
+        characterNode.DisableHitbox(true);
         characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
     }
 
@@ -61,6 +61,6 @@ public partial class PlayerAttackState : PlayerState
         characterNode.HitboxNode.Position = newHitboxPosition * distanceMultiplier;
 
         // Enable the hitbox
-        characterNode.ToggleHitbox(false);
+        characterNode.DisableHitbox(false);
     }
 }
