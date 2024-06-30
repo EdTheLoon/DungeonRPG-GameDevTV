@@ -31,12 +31,14 @@ public partial class EnemyAttackState : EnemyState
     private void Attack()
     {
         // Determine attack direction for hitbox        
-        Node3D target = characterNode.AttackAreaNode.GetOverlappingBodies().First();
+        Node3D target = characterNode.AttackAreaNode.GetOverlappingBodies().FirstOrDefault();
         Vector3 targetPosition = characterNode.GlobalPosition.DirectionTo(target.GlobalPosition);
-        characterNode.HitboxNode.Position = targetPosition;
+        // Move the hitbox and use a multiplier to move it further out
+        float multiplier = 1.5f;
+        characterNode.HitboxNode.Position = targetPosition * multiplier;
 
         // Flip sprite if Player is in different direction
-        characterNode.SpriteNode.FlipH = targetPosition.X >= 0 ? false : true;
+        characterNode.SpriteNode.FlipH = targetPosition.X < 0;
 
         // Random wait time after attacking
         RandomNumberGenerator rng = new();

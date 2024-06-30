@@ -265,6 +265,8 @@ size = Vector3(0.5, 0.5, 0.5)
 [node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("SpriteNode", "AnimPlayerNode", "StateMachineNode", "HurtboxNode", "HitboxNode", "HitboxShapeNode", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
 collision_layer = 4
 collision_mask = 3
+floor_max_angle = 1.55334
+floor_snap_length = 0.2
 script = ExtResource("1_62sw8")
 stats = Array[Object]([SubResource("Resource_hthaw"), SubResource("Resource_q526k")])
 SpriteNode = NodePath("Sprite3D")
@@ -293,7 +295,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0717297, -0.0231053, 0)
 shape = SubResource("CapsuleShape3D_507sw")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-debug_enabled = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("100_8p5df")]
 currentState = NodePath("IdleState")

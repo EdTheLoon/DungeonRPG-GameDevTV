@@ -25,7 +25,7 @@ public abstract partial class EnemyState : CharacterState
     /// </summary>
     protected void Move() {
         // Update the NavigationAgent and get a walkable destination.
-        characterNode.AgentNode.GetNextPathPosition();
+        destination = characterNode.AgentNode.GetNextPathPosition();
 
         // Move towards the destination and flip the sprite if needed.
         characterNode.Velocity = characterNode.GlobalPosition.DirectionTo(destination);
