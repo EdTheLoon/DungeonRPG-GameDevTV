@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://chg8m7b84w8fl"]
+[gd_scene load_steps=15 format=3 uid="uid://chg8m7b84w8fl"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Main.cs" id="1_73dlc"]
 [ext_resource type="PackedScene" uid="uid://bg8wnf8klxgf4" path="res://Scenes/Characters/Player/player.tscn" id="2_3xv8i"]
 [ext_resource type="MeshLibrary" uid="uid://dk1nhvtankown" path="res://Resources/tiles.tres" id="3_21td8"]
 [ext_resource type="PackedScene" uid="uid://byeqfh24ujx7n" path="res://Scenes/Characters/Enemy/enemy.tscn" id="4_vsqaw"]
+[ext_resource type="PackedScene" uid="uid://b3c2uaxfybgv4" path="res://Scenes/General/ui.tscn" id="5_jxf8x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sx54j"]
 size = Vector3(64.543, 2.90161, 0.696167)
@@ -157,3 +158,5 @@ curve = SubResource("Curve3D_qbchp")
 [node name="LowerBack" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5195, 1.48729, -3.22855)
 curve = SubResource("Curve3D_ofxwy")
+
+[node name="UI" parent="." instance=ExtResource("5_jxf8x")]
