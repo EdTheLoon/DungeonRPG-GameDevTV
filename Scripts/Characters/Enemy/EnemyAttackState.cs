@@ -34,7 +34,12 @@ public partial class EnemyAttackState : EnemyState
         RandomNumberGenerator rng = new();
         attackTimerNode.WaitTime = rng.RandfRange(minWaitTime, maxWaitTime);
         attackTimerNode.Start();
-        characterNode.AnimPlayerNode.Play(GameConstants.ANIM_ATTACK);
+
+        // Plays the Attack animation with no blend and 1.5x speed.
+        characterNode.AnimPlayerNode.Play(
+            GameConstants.ANIM_ATTACK,
+            -1,
+            1.5f);
     }
 
     private void HandleAnimationFinished(StringName animName)

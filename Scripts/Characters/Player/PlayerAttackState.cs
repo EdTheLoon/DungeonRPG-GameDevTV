@@ -25,7 +25,12 @@ public partial class PlayerAttackState : PlayerState
     protected override void EnterState()
     {
         // Play animation. Should be Attack1 or Attack2
-        characterNode.AnimPlayerNode.Play(GameConstants.ANIM_ATTACK + comboCounter);
+        // Uses -1 for blend.
+        // Plays animation at 1.5x speed
+        characterNode.AnimPlayerNode.Play(
+            GameConstants.ANIM_ATTACK + comboCounter,
+            -1,
+            1.5f);
 
         // Subscribe to AnimationFinished signal.
         characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
