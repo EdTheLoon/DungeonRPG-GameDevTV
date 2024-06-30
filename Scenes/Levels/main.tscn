@@ -21,10 +21,10 @@ agent_max_climb = 0.5
 
 [sub_resource type="Curve3D" id="Curve3D_ohd63"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.254883, 0, 0.294582, 0, 0, 0, 0, 0, 0, -5.78434, 0, 1.30347, 0, 0, 0, 0, 0, 0, -5.72614, 0, 5.3196, 0, 0, 0, 0, 0, 0, -3.70837, 0, 9.31634, 0, 0, 0, 0, 0, 0, 4.3045, 0, 9.31634, 0, 0, 0, 0, 0, 0, 10.222, 0, 5.2614, 0, 0, 0, 0, 0, 0, 4.2657, 0, 5.2808, 0, 0, 0, 0, 0, 0, -0.254883, 0, 0.294582),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.263863, 5.00679e-05, 2.72098, 0, 0, 0, 0, 0, 0, -1.81015, 5.00679e-05, 0.548986, 0, 0, 0, 0, 0, 0, 2.23989, 5.00679e-05, 0.581647, 0, 0, 0, 0, 0, 0, 0.263863, 5.00679e-05, 2.72098),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
 }
-point_count = 8
+point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_tht87"]
 _data = {
@@ -92,6 +92,7 @@ data = {
 }
 
 [node name="InvisibleWalls" type="Node3D" parent="Environment"]
+visible = false
 
 [node name="InvisibleWallFront" type="StaticBody3D" parent="Environment/InvisibleWalls" groups=["NavigationMeshes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.8662, 2.61154, 6.84062)
@@ -118,6 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45752, 2.36438, -1.66541)
 shape = SubResource("BoxShape3D_604hq")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Environment"]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_fgvnj")
 
 [node name="Player" parent="." instance=ExtResource("2_3xv8i")]
@@ -135,7 +137,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7714, 1.45527, -4.6941)
 curve = SubResource("Curve3D_ohd63")
 
 [node name="EnemyLobbyMainDoor" parent="Enemies/Paths/LobbyMainDoor" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5027, 0.813491, -13.65)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198944, 0.813491, -7.02715)
 PathNode = NodePath("..")
 
 [node name="LobbyEast" type="Path3D" parent="Enemies/Paths"]
@@ -150,18 +152,18 @@ curve = SubResource("Curve3D_78hyx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.002, 1.4868, 0)
 curve = SubResource("Curve3D_dte4f")
 
-[node name="EnemyLowerFront" parent="Enemies/Paths/LobbyFront" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5127, 4.77595, -12.1629)
-PathNode = NodePath("..")
-
 [node name="UpperRoom" type="Path3D" parent="Enemies/Paths"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0468, 5.52266, -12.0872)
 curve = SubResource("Curve3D_qbchp")
 
 [node name="EnemyUpperRoom2" parent="Enemies/Paths/UpperRoom" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0997, -3.26659, 7.9774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6362, -3.26659, 16.012)
 PathNode = NodePath("..")
 
 [node name="LowerBack" type="Path3D" parent="Enemies/Paths"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5195, 1.48729, -3.22855)
 curve = SubResource("Curve3D_ofxwy")
+
+[node name="EnemyLowerBack" parent="Enemies/Paths/LowerBack" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2839, 4.77546, -4.9937)
+PathNode = NodePath("..")
