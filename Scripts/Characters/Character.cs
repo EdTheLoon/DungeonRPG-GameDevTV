@@ -3,6 +3,12 @@ using Godot;
 
 public abstract partial class Character : CharacterBody3D
 {
+    // EDITOR ACCESSIBLE FIELDS ----------------------------------------------
+
+    // Stats
+    [ExportGroup("Stats")] 
+    [Export] private StatResource[] stats;
+
     // ExportGroup allows the following exported variables to be grouped
     // within the editor.
     [ExportGroup("Required Editor Nodes")]
@@ -18,10 +24,15 @@ public abstract partial class Character : CharacterBody3D
     [Export] public Area3D ChaseAreaNode { get; private set; }
     [Export] public Area3D AttackAreaNode { get; private set; }    
 
+
+    // MEMBER FIELDS --------------------------------------------------------
+
     // An index for keeping track of which point in a path we are going to (AI)
     public int pointIndex = 0;
-
     public Vector2 direction = new();
+
+
+    // METHODS --------------------------------------------------------------
 
     public override void _Ready()
     {

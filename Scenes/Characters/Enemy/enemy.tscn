@@ -1,8 +1,9 @@
-[gd_scene load_steps=118 format=3 uid="uid://byeqfh24ujx7n"]
+[gd_scene load_steps=121 format=3 uid="uid://byeqfh24ujx7n"]
 
 [ext_resource type="Texture2D" uid="uid://depqoslw82tpe" path="res://Assets/Sprites/Characters/Enemy Knight/Walking/0_Demons_of_Darkness_Walking_010.png" id="1_8gyme"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy.cs" id="1_62sw8"]
 [ext_resource type="Texture2D" uid="uid://spky0fo7b6lt" path="res://Assets/Sprites/Characters/Enemy Knight/Dying/0_Demons_of_Darkness_Dying_000.png" id="1_dsbod"]
+[ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="2_frltb"]
 [ext_resource type="Texture2D" uid="uid://dfcwswtndgttb" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="2_l0kk8"]
 [ext_resource type="Texture2D" uid="uid://dek0k6ulv7734" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_001.png" id="3_xgmde"]
 [ext_resource type="Texture2D" uid="uid://xpvsu3xxm2pb" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_002.png" id="4_mmtob"]
@@ -108,6 +109,16 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyReturnState.cs" id="107_ukqak"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyPatrolState.cs" id="108_1is8e"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyChaseState.cs" id="109_3vjmt"]
+
+[sub_resource type="Resource" id="Resource_hthaw"]
+script = ExtResource("2_frltb")
+StatType = 0
+StatValue = 20.0
+
+[sub_resource type="Resource" id="Resource_q526k"]
+script = ExtResource("2_frltb")
+StatType = 1
+StatValue = 4.0
 
 [sub_resource type="Animation" id="Animation_0vwrf"]
 resource_name = "Attack"
@@ -238,6 +249,7 @@ radius = 1.3
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_62sw8")
+stats = Array[Object]([SubResource("Resource_hthaw"), SubResource("Resource_q526k")])
 SpriteNode = NodePath("Sprite3D")
 AnimPlayerNode = NodePath("AnimationPlayer")
 StateMachineNode = NodePath("StateMachine")

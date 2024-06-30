@@ -1,9 +1,10 @@
-[gd_scene load_steps=75 format=3 uid="uid://bg8wnf8klxgf4"]
+[gd_scene load_steps=78 format=3 uid="uid://bg8wnf8klxgf4"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Player/Player.cs" id="1_58c7m"]
 [ext_resource type="Texture2D" uid="uid://ctx10f6fh1vlk" path="res://Assets/Sprites/Characters/Player/Running/Running_000.png" id="1_rrprd"]
 [ext_resource type="Texture2D" uid="uid://bfgap1dgk2m2q" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_000.png" id="2_8yncu"]
 [ext_resource type="Texture2D" uid="uid://bh62p4nwppqt0" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_011.png" id="2_50j4k"]
+[ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="2_vgd8v"]
 [ext_resource type="Texture2D" uid="uid://pu510hrguttd" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_000.png" id="2_wu27y"]
 [ext_resource type="Texture2D" uid="uid://byqklc7c043dj" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_001.png" id="3_7jr4d"]
 [ext_resource type="Texture2D" uid="uid://cg66nx88fxlcc" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_002.png" id="4_b5qe0"]
@@ -66,6 +67,16 @@
 [ext_resource type="Texture2D" uid="uid://c4mydabr62e4r" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_009.png" id="60_jag1y"]
 [ext_resource type="Texture2D" uid="uid://cs12df16ow5p1" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_010.png" id="61_vfa33"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerAttackState.cs" id="66_juixn"]
+
+[sub_resource type="Resource" id="Resource_3ge1c"]
+script = ExtResource("2_vgd8v")
+StatType = 0
+StatValue = 100.0
+
+[sub_resource type="Resource" id="Resource_pp147"]
+script = ExtResource("2_vgd8v")
+StatType = 1
+StatValue = 3.0
 
 [sub_resource type="Animation" id="Animation_61jay"]
 resource_name = "Dash"
@@ -172,6 +183,7 @@ collision_mask = 5
 floor_max_angle = 1.55334
 floor_snap_length = 0.2
 script = ExtResource("1_58c7m")
+stats = Array[Object]([SubResource("Resource_3ge1c"), SubResource("Resource_pp147")])
 SpriteNode = NodePath("Sprite3D")
 AnimPlayerNode = NodePath("AnimationPlayer")
 StateMachineNode = NodePath("StateMachine")
