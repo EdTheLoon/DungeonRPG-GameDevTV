@@ -1,0 +1,214 @@
+[gd_scene load_steps=74 format=3 uid="uid://bg8wnf8klxgf4"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Player/Player.cs" id="1_58c7m"]
+[ext_resource type="Texture2D" uid="uid://ctx10f6fh1vlk" path="res://Assets/Sprites/Characters/Player/Running/Running_000.png" id="1_rrprd"]
+[ext_resource type="Texture2D" uid="uid://bfgap1dgk2m2q" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_000.png" id="2_8yncu"]
+[ext_resource type="Texture2D" uid="uid://bh62p4nwppqt0" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_011.png" id="2_50j4k"]
+[ext_resource type="Texture2D" uid="uid://pu510hrguttd" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_000.png" id="2_wu27y"]
+[ext_resource type="Texture2D" uid="uid://byqklc7c043dj" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_001.png" id="3_7jr4d"]
+[ext_resource type="Texture2D" uid="uid://cg66nx88fxlcc" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_002.png" id="4_b5qe0"]
+[ext_resource type="Texture2D" uid="uid://b0x55o1q13x42" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_003.png" id="5_sx5hy"]
+[ext_resource type="Texture2D" uid="uid://dv5ancqy4rykw" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_004.png" id="6_yawnm"]
+[ext_resource type="Texture2D" uid="uid://c26yvpmingxfv" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_005.png" id="7_esyu1"]
+[ext_resource type="Texture2D" uid="uid://bqp3jsao10k4b" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_006.png" id="8_ci8w0"]
+[ext_resource type="Texture2D" uid="uid://g0oek8xvnr04" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_007.png" id="9_pyla1"]
+[ext_resource type="Texture2D" uid="uid://0taclr2oo67f" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_008.png" id="10_84be0"]
+[ext_resource type="Texture2D" uid="uid://m4ql17u3o7ls" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_009.png" id="11_hik0k"]
+[ext_resource type="Texture2D" uid="uid://dgu1copf8kc5w" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_010.png" id="12_ih27p"]
+[ext_resource type="Texture2D" uid="uid://dvhtxfx3nm7tu" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_011.png" id="13_dubln"]
+[ext_resource type="Texture2D" uid="uid://bapxgtqn1aacj" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_012.png" id="14_rbxug"]
+[ext_resource type="Texture2D" uid="uid://co8xd3cy32g25" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_013.png" id="15_a580j"]
+[ext_resource type="Texture2D" uid="uid://b7pbidvwsklm4" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_014.png" id="16_ihgia"]
+[ext_resource type="Texture2D" uid="uid://bx86vilowgwln" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_015.png" id="17_usl3i"]
+[ext_resource type="Texture2D" uid="uid://bno8xxuqde4ji" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_016.png" id="18_5sn1a"]
+[ext_resource type="Texture2D" uid="uid://bqfku84hgng04" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_017.png" id="19_1icfi"]
+[ext_resource type="Texture2D" uid="uid://bcbhx0pyxuidy" path="res://Assets/Sprites/Characters/Player/Running/Running_001.png" id="20_rdgp8"]
+[ext_resource type="Texture2D" uid="uid://cjbx71inbe6by" path="res://Assets/Sprites/Characters/Player/Running/Running_002.png" id="21_ene3x"]
+[ext_resource type="Texture2D" uid="uid://dkylnbmserpn6" path="res://Assets/Sprites/Characters/Player/Running/Running_003.png" id="22_xm3i1"]
+[ext_resource type="Texture2D" uid="uid://6qug0m06kj3s" path="res://Assets/Sprites/Characters/Player/Running/Running_004.png" id="23_5l7vs"]
+[ext_resource type="Texture2D" uid="uid://c4rklf45ar2uy" path="res://Assets/Sprites/Characters/Player/Running/Running_005.png" id="24_bu7t8"]
+[ext_resource type="Texture2D" uid="uid://cxpo0oe62orab" path="res://Assets/Sprites/Characters/Player/Running/Running_006.png" id="25_aeg15"]
+[ext_resource type="Texture2D" uid="uid://c6d4p2biyit3x" path="res://Assets/Sprites/Characters/Player/Running/Running_007.png" id="26_erqry"]
+[ext_resource type="Texture2D" uid="uid://qcxv0pqcxvjc" path="res://Assets/Sprites/Characters/Player/Running/Running_008.png" id="27_ffvc2"]
+[ext_resource type="Texture2D" uid="uid://dqi5d1psbsw2m" path="res://Assets/Sprites/Characters/Player/Running/Running_009.png" id="28_h5cua"]
+[ext_resource type="Texture2D" uid="uid://oi0437a7on4h" path="res://Assets/Sprites/Characters/Player/Running/Running_010.png" id="29_chtsl"]
+[ext_resource type="Texture2D" uid="uid://dfry4qfunxlb8" path="res://Assets/Sprites/Characters/Player/Running/Running_011.png" id="30_db6y7"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerIdleState.cs" id="32_fi6xd"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerMoveState.cs" id="33_c5xb3"]
+[ext_resource type="Texture2D" uid="uid://cphbl88hoba01" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_001.png" id="33_y5o3l"]
+[ext_resource type="Texture2D" uid="uid://bsvq4a2l46uoh" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_002.png" id="34_2fx1p"]
+[ext_resource type="Texture2D" uid="uid://db16y3xck6i1u" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_003.png" id="35_0vvrx"]
+[ext_resource type="Texture2D" uid="uid://3b223k3accfk" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_004.png" id="36_1xo7t"]
+[ext_resource type="Texture2D" uid="uid://bn5burqe21h1l" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_005.png" id="37_y0sdg"]
+[ext_resource type="PackedScene" uid="uid://cquufckityolc" path="res://Scenes/Characters/state_machine.tscn" id="38_apmxw"]
+[ext_resource type="Texture2D" uid="uid://s6fv7qodxlq8" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_000.png" id="39_yp6ct"]
+[ext_resource type="Texture2D" uid="uid://b5muiiq852gwn" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_001.png" id="40_7c0kf"]
+[ext_resource type="Texture2D" uid="uid://bkribpvg57l5j" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_002.png" id="41_s5lv0"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerDashState.cs" id="41_xrgfh"]
+[ext_resource type="Texture2D" uid="uid://cmwwmhc6i1ydp" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_003.png" id="42_s5tlb"]
+[ext_resource type="Texture2D" uid="uid://da2a0084pnt7n" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_004.png" id="43_tyt8k"]
+[ext_resource type="Texture2D" uid="uid://bj38h68d7vyil" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_005.png" id="44_17v64"]
+[ext_resource type="Texture2D" uid="uid://d1r44axeyv2pr" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_006.png" id="45_blexc"]
+[ext_resource type="Texture2D" uid="uid://myhimy3a7k" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_007.png" id="46_85j0t"]
+[ext_resource type="Texture2D" uid="uid://r2nf84h5edph" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_008.png" id="47_ub3j1"]
+[ext_resource type="Texture2D" uid="uid://c5o880ee2itpj" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_009.png" id="48_tcgjg"]
+[ext_resource type="Texture2D" uid="uid://c6bu0ckj48kvu" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_010.png" id="49_8rxb2"]
+[ext_resource type="Texture2D" uid="uid://2jdmlc5o3f6d" path="res://Assets/Sprites/Characters/Player/Kicking/Kicking_011.png" id="50_u53j1"]
+[ext_resource type="Texture2D" uid="uid://cgqd8p0p6a3em" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_000.png" id="51_y8exg"]
+[ext_resource type="Texture2D" uid="uid://cljxptqqkaxay" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_001.png" id="52_kminj"]
+[ext_resource type="Texture2D" uid="uid://ff1ruxara1l7" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_002.png" id="53_5n52s"]
+[ext_resource type="Texture2D" uid="uid://bdyguemqhbcyu" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_003.png" id="54_2wb4n"]
+[ext_resource type="Texture2D" uid="uid://c0wtgj22capny" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_004.png" id="55_2p3j6"]
+[ext_resource type="Texture2D" uid="uid://d2vh8jin821vx" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_005.png" id="56_xrsw0"]
+[ext_resource type="Texture2D" uid="uid://cimhiyqishr10" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_006.png" id="57_45eaw"]
+[ext_resource type="Texture2D" uid="uid://bvroccj83ob0t" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_007.png" id="58_2finw"]
+[ext_resource type="Texture2D" uid="uid://drhcn7thv030t" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_008.png" id="59_totpx"]
+[ext_resource type="Texture2D" uid="uid://c4mydabr62e4r" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_009.png" id="60_jag1y"]
+[ext_resource type="Texture2D" uid="uid://cs12df16ow5p1" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_010.png" id="61_vfa33"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerAttackState.cs" id="66_juixn"]
+
+[sub_resource type="Animation" id="Animation_61jay"]
+resource_name = "Dash"
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_8yncu"), ExtResource("33_y5o3l"), ExtResource("34_2fx1p"), ExtResource("35_0vvrx"), ExtResource("36_1xo7t"), ExtResource("37_y0sdg")]
+}
+
+[sub_resource type="Animation" id="Animation_jp68a"]
+resource_name = "Idle"
+length = 1.00001
+loop_mode = 1
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0555556, 0.111111, 0.166667, 0.222222, 0.277778, 0.333333, 0.388889, 0.444444, 0.5, 0.555556, 0.611111, 0.666667, 0.722222, 0.777778, 0.833333, 0.888889, 0.944444),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_wu27y"), ExtResource("3_7jr4d"), ExtResource("4_b5qe0"), ExtResource("5_sx5hy"), ExtResource("6_yawnm"), ExtResource("7_esyu1"), ExtResource("8_ci8w0"), ExtResource("9_pyla1"), ExtResource("10_84be0"), ExtResource("11_hik0k"), ExtResource("12_ih27p"), ExtResource("13_dubln"), ExtResource("14_rbxug"), ExtResource("15_a580j"), ExtResource("16_ihgia"), ExtResource("17_usl3i"), ExtResource("18_5sn1a"), ExtResource("19_1icfi")]
+}
+
+[sub_resource type="Animation" id="Animation_jbsd2"]
+resource_name = "Move"
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_rrprd"), ExtResource("20_rdgp8"), ExtResource("21_ene3x"), ExtResource("22_xm3i1"), ExtResource("23_5l7vs"), ExtResource("24_bu7t8"), ExtResource("25_aeg15"), ExtResource("26_erqry"), ExtResource("27_ffvc2"), ExtResource("28_h5cua"), ExtResource("29_chtsl"), ExtResource("30_db6y7")]
+}
+
+[sub_resource type="Animation" id="Animation_w8cih"]
+resource_name = "Attack1"
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("39_yp6ct"), ExtResource("40_7c0kf"), ExtResource("41_s5lv0"), ExtResource("42_s5tlb"), ExtResource("43_tyt8k"), ExtResource("44_17v64"), ExtResource("45_blexc"), ExtResource("46_85j0t"), ExtResource("47_ub3j1"), ExtResource("48_tcgjg"), ExtResource("49_8rxb2"), ExtResource("50_u53j1")]
+}
+
+[sub_resource type="Animation" id="Animation_os8kt"]
+resource_name = "Attack2"
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("51_y8exg"), ExtResource("52_kminj"), ExtResource("53_5n52s"), ExtResource("54_2wb4n"), ExtResource("55_2p3j6"), ExtResource("56_xrsw0"), ExtResource("57_45eaw"), ExtResource("58_2finw"), ExtResource("59_totpx"), ExtResource("60_jag1y"), ExtResource("61_vfa33"), ExtResource("2_50j4k")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oltro"]
+_data = {
+"Attack1": SubResource("Animation_w8cih"),
+"Attack2": SubResource("Animation_os8kt"),
+"Dash": SubResource("Animation_61jay"),
+"Idle": SubResource("Animation_jp68a"),
+"Move": SubResource("Animation_jbsd2")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y13ol"]
+radius = 0.710253
+height = 2.29828
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("SpriteNode", "AnimPlayerNode", "StateMachineNode")]
+collision_layer = 2
+collision_mask = 5
+floor_max_angle = 1.55334
+floor_snap_length = 0.2
+script = ExtResource("1_58c7m")
+SpriteNode = NodePath("Sprite3D")
+AnimPlayerNode = NodePath("AnimationPlayer")
+StateMachineNode = NodePath("StateMachine")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.004
+texture_filter = 0
+texture = ExtResource("2_wu27y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite3D")
+libraries = {
+"": SubResource("AnimationLibrary_oltro")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0162532, 0.00446844, 0)
+visible = false
+shape = SubResource("CapsuleShape3D_y13ol")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("38_apmxw")]
+currentState = NodePath("IdleState")
+states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState"), NodePath("AttackState")]
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("32_fi6xd")
+
+[node name="MoveState" type="Node" parent="StateMachine"]
+script = ExtResource("33_c5xb3")
+
+[node name="DashState" type="Node" parent="StateMachine" node_paths=PackedStringArray("dashTimerNode")]
+script = ExtResource("41_xrgfh")
+dashTimerNode = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="StateMachine/DashState"]
+wait_time = 0.4
+one_shot = true
+
+[node name="AttackState" type="Node" parent="StateMachine"]
+script = ExtResource("66_juixn")
+
+[node name="Timer" type="Timer" parent="StateMachine/AttackState"]
+one_shot = true
