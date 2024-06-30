@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class EnemyDeathState : EnemyState
+public partial class PlayerDeathState : PlayerState
 {
     protected override void EnterState()
     {

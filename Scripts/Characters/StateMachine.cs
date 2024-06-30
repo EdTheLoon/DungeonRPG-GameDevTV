@@ -22,8 +22,9 @@ public partial class StateMachine : Node
         // Use Microsoft LINQ to check if the State is a valid possible state.
         Node newState = states.Where((state) => state is T).FirstOrDefault();
 
-        // Empty state checking
+        // Empty state and same state checking
         if (newState == null) { return; }
+        if (currentState is T) { return; }
         
         // Send notification to current state to exit.
         currentState.Notification(GameConstants.NOTIFICATION_EXIT_STATE);

@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public abstract partial class EnemyState : CharacterState
@@ -7,6 +8,14 @@ public abstract partial class EnemyState : CharacterState
     protected float MovementSpeed { get; private set; } = 2.0f;
 
     protected Vector3 destination;
+
+    public override void _Ready()
+    {
+        // Allow parent class to execute its Ready method
+        base._Ready();
+
+        characterNode.GetStatResource(Stat.Health).OnZero += HandleZeroHealth;
+    }
 
     /// <summary>
     /// Returns the GlobalPosition of a Point in a Path.
@@ -41,5 +50,15 @@ public abstract partial class EnemyState : CharacterState
     protected void HandleChaseAreaBodyEntered(Node3D body) 
     {
         characterNode.StateMachineNode.SwitchState<EnemyChaseState>();
+    }
+
+    /// <summary>
+    /// This method is added to a StatResource.OnZero so that it can be called
+    /// when the Enemy's Health falls to zero.
+    /// </summary>
+    private void HandleZeroHealth()
+    {
+        // Switch to EnemyDeathState.
+        characterNode.StateMachineNode.SwitchState<EnemyDeathState>();
     }
 }
