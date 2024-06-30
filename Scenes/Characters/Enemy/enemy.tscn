@@ -110,12 +110,12 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyPatrolState.cs" id="108_1is8e"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyChaseState.cs" id="109_3vjmt"]
 
-[sub_resource type="Resource" id="Resource_hthaw"]
+[sub_resource type="Resource" id="Resource_misth"]
 script = ExtResource("2_frltb")
 StatType = 0
 StatValue = 20.0
 
-[sub_resource type="Resource" id="Resource_q526k"]
+[sub_resource type="Resource" id="Resource_jh0jg"]
 script = ExtResource("2_frltb")
 StatType = 1
 StatValue = 4.0
@@ -268,7 +268,7 @@ collision_mask = 3
 floor_max_angle = 1.55334
 floor_snap_length = 0.2
 script = ExtResource("1_62sw8")
-stats = Array[Object]([SubResource("Resource_hthaw"), SubResource("Resource_q526k")])
+stats = Array[Object]([SubResource("Resource_misth"), SubResource("Resource_jh0jg")])
 SpriteNode = NodePath("Sprite3D")
 AnimPlayerNode = NodePath("AnimationPlayer")
 StateMachineNode = NodePath("StateMachine")
