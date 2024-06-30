@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3c2uaxfybgv4"]
+[gd_scene load_steps=7 format=3 uid="uid://b3c2uaxfybgv4"]
 
 [ext_resource type="Texture2D" uid="uid://bt5aynl2qs5kv" path="res://Assets/Sprites/UI/UI Element 1.png" id="1_5b43e"]
+[ext_resource type="Script" path="res://Scripts/UI/UIContainer.cs" id="1_ckhk7"]
+[ext_resource type="Script" path="res://Scripts/UI/UIController.cs" id="1_m5uhi"]
 [ext_resource type="FontFile" uid="uid://c7g2kax615qh4" path="res://Assets/RifficFree-Bold.ttf" id="2_ydpf3"]
 [ext_resource type="Texture2D" uid="uid://bavu4qqfx6kif" path="res://Assets/Sprites/UI/UI Element 2.png" id="3_up1as"]
 
@@ -18,8 +20,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_m5uhi")
 
-[node name="Container" type="VBoxContainer" parent="."]
+[node name="Start" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,12 +35,13 @@ offset_right = 260.5
 offset_bottom = 109.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ckhk7")
 
-[node name="TextureRect" type="TextureRect" parent="Container"]
+[node name="TextureRect" type="TextureRect" parent="Start"]
 layout_mode = 2
 texture = ExtResource("1_5b43e")
 
-[node name="Button" type="Button" parent="Container"]
+[node name="Button" type="Button" parent="Start"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_ydpf3")
