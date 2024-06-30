@@ -48,7 +48,8 @@ public partial class PlayerAttackState : PlayerState
         comboCounter++;
         comboCounter = Mathf.Wrap(comboCounter, minComboCount, maxComboCount+1);
         
-        // Switch to PlayerIdleState
+        // Switch to PlayerIdleState and disable hitbox
+        characterNode.ToggleHitbox(true);
         characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
     }
 
@@ -56,7 +57,10 @@ public partial class PlayerAttackState : PlayerState
     {
         // Use ternary operator to determine which position the hitbox should be in.
         Vector3 newHitboxPosition = characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
-        float distanceMultiplier = 0.75f;
+        float distanceMultiplier = 0.9f;
         characterNode.HitboxNode.Position = newHitboxPosition * distanceMultiplier;
+
+        // Enable the hitbox
+        characterNode.ToggleHitbox(false);
     }
 }
