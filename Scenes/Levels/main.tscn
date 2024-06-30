@@ -19,6 +19,13 @@ geometry_source_geometry_mode = 1
 geometry_source_group_name = &"NavigationMeshes"
 agent_max_climb = 0.5
 
+[sub_resource type="Curve3D" id="Curve3D_78hyx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5.62172, -4.19617e-05, 9.80244, 0, 0, 0, 0, 0, 0, -5.65251, -4.19617e-05, -0.265215, 0, 0, 0, 0, 0, 0, 10.4188, -4.19617e-05, -0.296003, 0, 0, 0, 0, 0, 0, 10.4496, -4.19617e-05, 9.77165, 0, 0, 0, 0, 0, 0, -5.62172, -4.19617e-05, 9.80244),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [sub_resource type="Curve3D" id="Curve3D_ohd63"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.263863, 5.00679e-05, 2.72098, 0, 0, 0, 0, 0, 0, -1.81015, 5.00679e-05, 0.548986, 0, 0, 0, 0, 0, 0, 2.23989, 5.00679e-05, 0.581647, 0, 0, 0, 0, 0, 0, 0.263863, 5.00679e-05, 2.72098),
@@ -29,13 +36,6 @@ point_count = 4
 [sub_resource type="Curve3D" id="Curve3D_tht87"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.6525, -4.19617e-05, 9.33005, 0, 0, 0, 0, 0, 0, 10.7449, -4.19617e-05, 1.17125, 0, 0, 0, 0, 0, 0, -1.26239, -4.19617e-05, 1.10967, 0, 0, 0, 0, 0, 0, -1.32397, -4.19617e-05, 9.23769, 0, 0, 0, 0, 0, 0, 10.6525, -4.19617e-05, 9.33005),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
-}
-point_count = 5
-
-[sub_resource type="Curve3D" id="Curve3D_78hyx"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5.62172, -4.19617e-05, 9.80244, 0, 0, 0, 0, 0, 0, -5.65251, -4.19617e-05, -0.265215, 0, 0, 0, 0, 0, 0, 10.4188, -4.19617e-05, -0.296003, 0, 0, 0, 0, 0, 0, 10.4496, -4.19617e-05, 9.77165, 0, 0, 0, 0, 0, 0, -5.62172, -4.19617e-05, 9.80244),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -130,40 +130,30 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 
 [node name="Enemies" type="Node3D" parent="."]
 
-[node name="Paths" type="Node3D" parent="Enemies"]
-
-[node name="LobbyMainDoor" type="Path3D" parent="Enemies/Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7714, 1.45527, -4.6941)
-curve = SubResource("Curve3D_ohd63")
-
-[node name="LobbyEast" type="Path3D" parent="Enemies/Paths"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.2836, 1.45527, -5.26987)
-curve = SubResource("Curve3D_tht87")
-
-[node name="LowerBackroom" type="Path3D" parent="Enemies/Paths"]
+[node name="LowerBackroom" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6199, 1.45527, -17.7698)
 curve = SubResource("Curve3D_78hyx")
 
-[node name="LobbyFront" type="Path3D" parent="Enemies/Paths"]
+[node name="LobbyMainDoor" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7714, 1.45527, -4.6941)
+curve = SubResource("Curve3D_ohd63")
+
+[node name="EnemyMainDoor" parent="Enemies/LobbyMainDoor" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475277, 0.813784, -9.95507)
+PathNode = NodePath("..")
+
+[node name="LobbyEast" type="Path3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.2836, 1.45527, -5.26987)
+curve = SubResource("Curve3D_tht87")
+
+[node name="LobbyFront" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.002, 1.4868, 0)
 curve = SubResource("Curve3D_dte4f")
 
-[node name="UpperRoom" type="Path3D" parent="Enemies/Paths"]
+[node name="UpperRoom" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0468, 5.52266, -12.0872)
 curve = SubResource("Curve3D_qbchp")
 
-[node name="LowerBack" type="Path3D" parent="Enemies/Paths"]
+[node name="LowerBack" type="Path3D" parent="Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5195, 1.48729, -3.22855)
 curve = SubResource("Curve3D_ofxwy")
-
-[node name="EnemyUpperRoom" parent="Enemies" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25882, 0)
-PathNode = NodePath("../Paths/UpperRoom")
-
-[node name="EnemyBackroom" parent="Enemies" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9796, 6.30566, -8.69605)
-PathNode = NodePath("../Paths/LowerBack")
-
-[node name="EnemyMainDoor" parent="Enemies" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.2467, 2.26906, -14.6492)
-PathNode = NodePath("../Paths/LobbyMainDoor")
