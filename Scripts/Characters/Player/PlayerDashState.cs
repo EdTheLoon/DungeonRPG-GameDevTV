@@ -2,11 +2,10 @@ using Godot;
 
 public partial class PlayerDashState : PlayerState
 {
-    // Allows us to refer to the Timer node assigned in the engine.
-    [Export] private Timer dashTimerNode;
-    // Allow us to set the dash speed in engine. 
-    // PropertyHint.Range allows us to hint at a suitable range
-    [Export(PropertyHint.Range,"1,20")] private float dashSpeed = 10;
+    [Export] private Timer dashTimerNode;   // Allows us to refer to the Timer node assigned in the engine.
+    [Export(PropertyHint.Range,"1,20")]     // PropertyHint.Range allows us to hint at a suitable range
+    private float dashSpeed = 10;           // Allow us to set the dash speed in engine. 
+    [Export] private PackedScene bombScene; // A reference to the packed Bomb scene so we can instance new bombs.
 
     // Override the engine's Ready process so we can do our own initialisation.
     public override void _Ready()
@@ -49,6 +48,13 @@ public partial class PlayerDashState : PlayerState
         // Apply the Dash speed multiplier
         characterNode.Velocity *= dashSpeed;
         dashTimerNode.Start();
+
+        // Instance a bomb
+        Node3D bomb = bombScene.Instantiate<Node3D>();
+        GetTree().CurrentScene.AddChild(bomb);
+
+        // Modify bomb position
+        bomb.GlobalPosition = characterNode.GlobalPosition;
     }
 
     // This method is called when the Timer runs out. Switches the Player's

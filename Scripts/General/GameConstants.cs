@@ -14,9 +14,9 @@ public class GameConstants {
     public const string INPUT_DASH = "Dash";
     public const string INPUT_ATTACK = "Attack";
 
-    // Abilities
+    // Abilities Animations
     public const string ANIM_BOMB_EXPAND = "Expand";
-    public const string INPUT_BOMB = "Bomb";
+    public const string ANIM_BOMB_EXPLOSION = "Explosion";
 
     // UI Inputs
     public const string INPUT_PAUSE = "Pause";

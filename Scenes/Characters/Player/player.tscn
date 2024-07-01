@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://bg8wnf8klxgf4"]
+[gd_scene load_steps=95 format=3 uid="uid://bg8wnf8klxgf4"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Player/Player.cs" id="1_58c7m"]
 [ext_resource type="Texture2D" uid="uid://ctx10f6fh1vlk" path="res://Assets/Sprites/Characters/Player/Running/Running_000.png" id="1_rrprd"]
@@ -84,6 +84,7 @@
 [ext_resource type="Texture2D" uid="uid://538wsnv3siis" path="res://Assets/Sprites/Characters/Player/Dying/Dying_012.png" id="76_6rjpq"]
 [ext_resource type="Texture2D" uid="uid://1esdosd2pyj1" path="res://Assets/Sprites/Characters/Player/Dying/Dying_013.png" id="77_xwjgj"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerDeathState.cs" id="83_ksl0h"]
+[ext_resource type="PackedScene" uid="uid://ccsvnfq22xcpb" path="res://Scenes/Abilities/bomb.tscn" id="83_nhnen"]
 
 [sub_resource type="Animation" id="Animation_w8cih"]
 resource_name = "Attack1"
@@ -271,6 +272,7 @@ script = ExtResource("33_c5xb3")
 [node name="DashState" type="Node" parent="StateMachine" node_paths=PackedStringArray("dashTimerNode")]
 script = ExtResource("41_xrgfh")
 dashTimerNode = NodePath("Timer")
+bombScene = ExtResource("83_nhnen")
 
 [node name="Timer" type="Timer" parent="StateMachine/DashState"]
 wait_time = 0.4
