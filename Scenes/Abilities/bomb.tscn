@@ -88,11 +88,10 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p833h"]
-radius = 3.25
+radius = 3.0
 
 [node name="Bomb" type="Node3D" node_paths=PackedStringArray("animPlayerNode")]
 script = ExtResource("1_f4ij7")
-BombDamage = 20.0
 animPlayerNode = NodePath("AnimationPlayer")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -108,10 +107,9 @@ libraries = {
 autoplay = "Expand"
 
 [node name="Hitbox" type="Area3D" parent="."]
-collision_layer = 6
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("13_hbywo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("SphereShape3D_p833h")
-disabled = true

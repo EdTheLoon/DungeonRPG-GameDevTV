@@ -1,10 +1,10 @@
+using System;
 using Godot;
 
 public partial class PlayerAttackState : PlayerState
 {
-
-    // Reference to the combo timer in editor
-    [Export] private Timer comboTimerNode;
+    [Export] private PackedScene lightningScene;    // Reference to the lightning scene.
+    [Export] private Timer comboTimerNode;          // Reference to the combo timer in editor.
 
     // Combat combo counters
     private int comboCounter = 1;
@@ -33,12 +33,14 @@ public partial class PlayerAttackState : PlayerState
 
         // Subscribe to AnimationFinished signal.
         characterNode.AnimPlayerNode.AnimationFinished += HandleAnimationFinished;
+        characterNode.HitboxNode.BodyEntered += HandleBodyEntered;
     }
 
     protected override void ExitState()
     {
         // Unsubscribe from signals for cleanup.
         characterNode.AnimPlayerNode.AnimationFinished -= HandleAnimationFinished;
+        characterNode.HitboxNode.BodyEntered -= HandleBodyEntered;
         comboTimerNode.Start();
     }
 
@@ -51,6 +53,14 @@ public partial class PlayerAttackState : PlayerState
         // Switch to PlayerIdleState and disable hitbox
         characterNode.DisableHitbox(true);
         characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
+    }
+
+    private void HandleBodyEntered(Node3D body)
+    {
+        if (comboCounter != maxComboCount) { return ; }
+        Node3D lightning = lightningScene.Instantiate<Node3D>();
+        GetTree().CurrentScene.AddChild(lightning);
+        lightning.GlobalPosition = body.GlobalPosition;
     }
 
     private void PerformHit() 

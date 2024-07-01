@@ -139,6 +139,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_sdd6y")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Stats/MarginContainer/VBoxContainer/Strength"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 2.0
 offset_right = 72.0
@@ -165,6 +166,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_sdd6y")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Stats/MarginContainer/VBoxContainer/EnemyCount"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 2.0
 offset_right = 72.0
