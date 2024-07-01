@@ -6,6 +6,7 @@ using System;
 public partial class UIController : Control
 {
     private Dictionary<ContainerType, UIContainer> containers;
+    private bool canPause = false;
 
     public override void _Ready()
     {
@@ -19,11 +20,34 @@ public partial class UIController : Control
         // Show the Start UI
         containers[ContainerType.Start].Visible = true;
 
-        // Handle the Start button being pressed
+        // Handle buttons being pressed
         containers[ContainerType.Start].ButtonNode.Pressed += HandleStartPressed;
+        containers[ContainerType.Pause].ButtonNode.Pressed += HandlePausePressed;
 
         GameEvents.OnEndGame += HandleEndGame;
         GameEvents.OnVictory += HandleVictory;
+    }
+
+    private void HandlePausePressed()
+    {
+        GetTree().Paused = false;
+        containers[ContainerType.Pause].Visible = false;
+        containers[ContainerType.Stats].Visible = true;
+    }
+
+
+    public override void _Input(InputEvent @event)
+    {
+        if (!canPause) { return; }
+
+        if (!Input.IsActionJustPressed(GameConstants.INPUT_PAUSE))
+        {
+            return;
+        }
+        
+        containers[ContainerType.Stats].Visible = GetTree().Paused;
+        GetTree().Paused = !GetTree().Paused;
+        containers[ContainerType.Pause].Visible = GetTree().Paused;
     }
 
     private void HandleStartPressed()
@@ -35,18 +59,21 @@ public partial class UIController : Control
 
         // Raise the OnStartGame event
         GameEvents.RaiseStartGame();
+        canPause = true;
     }
 
     private void HandleEndGame()
     {
         containers[ContainerType.Stats].Visible = false;
         containers[ContainerType.Defeat].Visible = true;
+        canPause = false;
     }
 
     private void HandleVictory()
     {
         containers[ContainerType.Stats].Visible = false;
         containers[ContainerType.Victory].Visible = true;
+        canPause = false;
         GetTree().Paused = true;
     }
 }
