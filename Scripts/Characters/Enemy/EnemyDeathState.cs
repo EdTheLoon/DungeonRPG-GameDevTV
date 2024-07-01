@@ -12,6 +12,7 @@ public partial class EnemyDeathState : EnemyState
     {
         // Deletes a node from the SceneTree hierarchy. This deletes the enemy.
         characterNode.QueueFree();
+        characterNode.PathNode.QueueFree();
     }
 
 }
