@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://chg8m7b84w8fl"]
+[gd_scene load_steps=31 format=3 uid="uid://chg8m7b84w8fl"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Main.cs" id="1_73dlc"]
 [ext_resource type="PackedScene" uid="uid://bg8wnf8klxgf4" path="res://Scenes/Characters/Player/player.tscn" id="2_3xv8i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="5_f25bg"]
 [ext_resource type="PackedScene" uid="uid://b3c2uaxfybgv4" path="res://Scenes/General/ui.tscn" id="5_jxf8x"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemiesContainer.cs" id="5_yu6fi"]
+[ext_resource type="PackedScene" uid="uid://bug32hnkoajlt" path="res://Scenes/Reward/treasure_chest.tscn" id="9_n8pe6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sx54j"]
 size = Vector3(64.543, 2.90161, 0.696167)
@@ -253,3 +254,6 @@ curve = SubResource("Curve3D_ofxwy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.752178, 0)
 stats = Array[Object]([SubResource("Resource_2ygwe"), SubResource("Resource_gj2mc")])
 PathNode = NodePath("..")
+
+[node name="TreasureChest" parent="." instance=ExtResource("9_n8pe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0262, 5.57222, -13.9246)
