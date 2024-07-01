@@ -6,7 +6,7 @@ public partial class StatResource : Resource
 {
     // A variable that stores a method to be carried out when the stat
     // reaches zero.
-    public Action OnZero;
+    public event Action OnZero;
     
     // What type of Stat is this? Uses an enum.
     [Export] public Stat StatType { get; private set; }
