@@ -48,7 +48,7 @@ public partial class PlayerAttackState : PlayerState
     {
         // Increment combo counter and then wrap to keep within the limits.
         comboCounter++;
-        comboCounter = Mathf.Wrap(comboCounter, minComboCount, maxComboCount+1);
+        comboCounter = Mathf.Wrap(comboCounter, minComboCount, maxComboCount + 1);
         
         // Switch to PlayerIdleState and disable hitbox
         characterNode.DisableHitbox(true);

@@ -60,24 +60,21 @@ public partial class EnemyAttackState : EnemyState
 
     private void HandleAttackTimerTimeout()
     {
-        // If player is not in attack range then we should check if they're in
-        // chasing range. If they're not in chase range then we will return to patrolling.
-        if (characterNode.AttackAreaNode.GetOverlappingBodies().Count == 0)
+        // Check whether player is in attack range, if so then attack.
+        if (characterNode.AttackAreaNode.HasOverlappingBodies()) {
+            Attack();
+            return;
+        }
+
+        // Check whether the player is in chase range. If so, then chase.
+        if (characterNode.ChaseAreaNode.HasOverlappingBodies())
         {
-            // Check whether the player is in chase range.
-            if (characterNode.ChaseAreaNode.GetOverlappingBodies().Count == 0)
-            {
-                // Chase the player
-                characterNode.StateMachineNode.SwitchState<EnemyReturnState>();
-                return;
-            }
-            // Chase
             characterNode.StateMachineNode.SwitchState<EnemyChaseState>();
             return;
         }
 
-        // Player is within attack range so keep attacking.
-        Attack();
+        // Return to patrol
+        characterNode.StateMachineNode.SwitchState<EnemyPatrolState>();
     }
 
     private void PerformHit() 

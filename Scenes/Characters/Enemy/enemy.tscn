@@ -105,8 +105,8 @@
 [ext_resource type="PackedScene" uid="uid://cquufckityolc" path="res://Scenes/Characters/state_machine.tscn" id="100_8p5df"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyIdleState.cs" id="101_spywm"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyAttackState.cs" id="103_l781e"]
-[ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyTakeHitState.cs" id="104_4hg8o"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyDeathState.cs" id="105_8wej3"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyStunState.cs" id="106_tuxnl"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyReturnState.cs" id="107_ukqak"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyPatrolState.cs" id="108_1is8e"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyChaseState.cs" id="109_3vjmt"]
@@ -235,7 +235,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_eo1ia"]
-resource_name = "TakeHit"
+resource_name = "Stun"
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -256,7 +256,7 @@ _data = {
 "Death": SubResource("Animation_5ggvj"),
 "Idle": SubResource("Animation_m62ti"),
 "Move": SubResource("Animation_ad3hj"),
-"TakeHit": SubResource("Animation_eo1ia")
+"Stun": SubResource("Animation_eo1ia")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_507sw"]
@@ -296,7 +296,7 @@ material_overlay = SubResource("ShaderMaterial_687gg")
 offset = Vector2(0, -40)
 pixel_size = 0.004
 texture_filter = 0
-texture = ExtResource("2_l0kk8")
+texture = ExtResource("56_mbhrb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite3D")
@@ -310,11 +310,18 @@ visible = false
 shape = SubResource("CapsuleShape3D_507sw")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 1.2
+target_desired_distance = 1.2
+avoidance_enabled = true
+radius = 1.0
+neighbor_distance = 10.0
+avoidance_layers = 4
+avoidance_mask = 4
 debug_enabled = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("100_8p5df")]
 currentState = NodePath("IdleState")
-states = [NodePath("IdleState"), NodePath("AttackState"), NodePath("TakeHitState"), NodePath("DeathState"), NodePath("ReturnState"), NodePath("PatrolState"), NodePath("ChaseState")]
+states = [NodePath("IdleState"), NodePath("AttackState"), NodePath("StunState"), NodePath("DeathState"), NodePath("ReturnState"), NodePath("PatrolState"), NodePath("ChaseState")]
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("101_spywm")
@@ -326,8 +333,8 @@ attackTimerNode = NodePath("Timer")
 [node name="Timer" type="Timer" parent="StateMachine/AttackState"]
 wait_time = 1.5
 
-[node name="TakeHitState" type="Node" parent="StateMachine"]
-script = ExtResource("104_4hg8o")
+[node name="StunState" type="Node" parent="StateMachine"]
+script = ExtResource("106_tuxnl")
 
 [node name="DeathState" type="Node" parent="StateMachine"]
 script = ExtResource("105_8wej3")
