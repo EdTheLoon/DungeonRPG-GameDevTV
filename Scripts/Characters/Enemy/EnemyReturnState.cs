@@ -9,14 +9,14 @@ public partial class EnemyReturnState : EnemyState
         base._Ready();
 
         // Set navigation target to the last index we were using.
-        destination = GetPointGlobalPosition(characterNode.pointIndex);
+        destination = GetPointGlobalPosition(characterNode.PointIndex);
     }
 
     protected override void EnterState()
     {
         // Play Move animation and set NavigationAgent's target position
         characterNode.AnimPlayerNode.Play(GameConstants.ANIM_MOVE);
-        destination = GetPointGlobalPosition(characterNode.pointIndex);
+        destination = GetPointGlobalPosition(characterNode.PointIndex);
         characterNode.AgentNode.TargetPosition = destination;
         
         // Subscribe to ChaseArea BodyEntered signal.
@@ -33,6 +33,7 @@ public partial class EnemyReturnState : EnemyState
         // If we have reached the start of our patrol Path then switch to EnemyPatrolState
         if (characterNode.AgentNode.IsNavigationFinished()) 
         {
+            characterNode.PointIndex++;
             characterNode.StateMachineNode.SwitchState<EnemyPatrolState>();
             return;
         }

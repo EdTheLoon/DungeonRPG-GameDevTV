@@ -34,9 +34,19 @@ public abstract partial class Character : CharacterBody3D
 
 
     // MEMBER FIELDS --------------------------------------------------------
+    // An index for keeping track of which point in a path we are going to (AI).
+    // Uses a setter to ensure the index never goes higher than the number of points
+    // in the assigned path.
+    private int _pointIndex;
+    public int PointIndex 
+    {
+        get => _pointIndex;
+        set 
+        {
+            _pointIndex = Mathf.Wrap(value, 0, PathNode.Curve.PointCount);
+        }
+    }
 
-    // An index for keeping track of which point in a path we are going to (AI)
-    public int pointIndex = 0;
     public Vector2 direction = new();
 
 

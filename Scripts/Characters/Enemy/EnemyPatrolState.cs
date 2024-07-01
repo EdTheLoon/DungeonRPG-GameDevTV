@@ -17,11 +17,8 @@ public partial class EnemyPatrolState : EnemyState
         // Play Move animation
         characterNode.AnimPlayerNode.Play(GameConstants.ANIM_MOVE);
 
-        // Move to the second point in our path. We use the second point here
-        // because this code block is only expected to execute when the enemy
-        // reaches the first point of the Path in EnemyReturnState.
-        characterNode.pointIndex++;
-        destination = GetPointGlobalPosition(characterNode.pointIndex);
+        // Move to the next point in our path
+        destination = GetPointGlobalPosition(characterNode.PointIndex);
         characterNode.AgentNode.TargetPosition = destination;
 
         // Subscribe to signals.
@@ -60,12 +57,11 @@ public partial class EnemyPatrolState : EnemyState
     private void HandleTimeout()
     {
         // Update next target navigation point in the index
-        characterNode.pointIndex++;        
-        characterNode.pointIndex = Mathf.Wrap(characterNode.pointIndex, 0, characterNode.PathNode.Curve.PointCount);
+        characterNode.PointIndex++;        
 
         // Play animation and move towards the point.
         characterNode.AnimPlayerNode.Play(GameConstants.ANIM_MOVE);
-        destination = GetPointGlobalPosition(characterNode.pointIndex);
+        destination = GetPointGlobalPosition(characterNode.PointIndex);
         characterNode.AgentNode.TargetPosition = destination;
     }
 
