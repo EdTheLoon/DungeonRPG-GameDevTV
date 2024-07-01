@@ -1,18 +1,24 @@
 public class GameConstants {
-    // Animations
+    // Character Animations
     public const string ANIM_IDLE = "Idle";
     public const string ANIM_MOVE = "Move";
     public const string ANIM_DASH = "Dash";
     public const string ANIM_ATTACK = "Attack";
     public const string ANIM_DEATH = "Death";
 
-    // Inputs
+    // Character Inputs
     public const string INPUT_MOVE_LEFT = "MoveLeft";
     public const string INPUT_MOVE_RIGHT = "MoveRight";
     public const string INPUT_MOVE_FORWARD = "MoveForward";
     public const string INPUT_MOVE_BACKWARD = "MoveBackward";
     public const string INPUT_DASH = "Dash";
     public const string INPUT_ATTACK = "Attack";
+
+    // Abilities
+    public const string ANIM_BOMB_EXPAND = "Expand";
+    public const string INPUT_BOMB = "Bomb";
+
+    // UI Inputs
     public const string INPUT_PAUSE = "Pause";
     public const string INPUT_INTERACT = "Interact";
 
