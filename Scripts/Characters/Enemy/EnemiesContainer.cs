@@ -16,7 +16,7 @@ public partial class EnemiesContainer : Node3D
         GameEvents.RaiseNewEnemyCount(totalEnemies);
 
         if (totalEnemies == 0) {
-            GameEvents.RaiseOnVictory();
+            GameEvents.RaiseVictory();
         }
     }
 }

@@ -23,18 +23,13 @@ public partial class UIController : Control
         // Handle buttons being pressed
         containers[ContainerType.Start].ButtonNode.Pressed += HandleStartPressed;
         containers[ContainerType.Pause].ButtonNode.Pressed += HandlePausePressed;
+        containers[ContainerType.Reward].ButtonNode.Pressed += HandleRewardPressed;
 
+        // Subscribe to GameEvents
         GameEvents.OnEndGame += HandleEndGame;
         GameEvents.OnVictory += HandleVictory;
+        GameEvents.OnReward += HandleReward;
     }
-
-    private void HandlePausePressed()
-    {
-        GetTree().Paused = false;
-        containers[ContainerType.Pause].Visible = false;
-        containers[ContainerType.Stats].Visible = true;
-    }
-
 
     public override void _Input(InputEvent @event)
     {
@@ -62,18 +57,47 @@ public partial class UIController : Control
         canPause = true;
     }
 
+    private void HandlePausePressed()
+    {
+        GetTree().Paused = false;
+        containers[ContainerType.Pause].Visible = false;
+        containers[ContainerType.Stats].Visible = true;
+    }
+
+    private void HandleRewardPressed()
+    {
+        canPause = true;
+        GetTree().Paused = false;
+
+        containers[ContainerType.Stats].Visible = true;
+        containers[ContainerType.Reward].Visible = false;
+    }
+
     private void HandleEndGame()
     {
+        canPause = false;
         containers[ContainerType.Stats].Visible = false;
         containers[ContainerType.Defeat].Visible = true;
-        canPause = false;
     }
 
     private void HandleVictory()
     {
-        containers[ContainerType.Stats].Visible = false;
-        containers[ContainerType.Victory].Visible = true;
         canPause = false;
         GetTree().Paused = true;
+
+        containers[ContainerType.Stats].Visible = false;
+        containers[ContainerType.Victory].Visible = true;
+    }
+
+    private void HandleReward(RewardResource resource)
+    {
+        canPause = false;
+        GetTree().Paused = true;
+
+        containers[ContainerType.Stats].Visible = false;
+        containers[ContainerType.Reward].Visible = true;
+
+        containers[ContainerType.Reward].TextureNode.Texture = resource.SpriteTexture;
+        containers[ContainerType.Reward].LabelNode.Text = resource.Description;
     }
 }

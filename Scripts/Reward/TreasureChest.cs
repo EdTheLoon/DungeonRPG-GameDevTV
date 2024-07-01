@@ -22,8 +22,7 @@ public partial class TreasureChest : StaticBody3D
     {
         // If the input is not INPUT_INTERACT then return.
         if (!Input.IsActionJustPressed(GameConstants.INPUT_INTERACT)) { return; }
-
-        GD.Print("Chest interacted");
+        interact();
     }
 
     private void HandleBodyEntered(Node3D body)
@@ -37,6 +36,17 @@ public partial class TreasureChest : StaticBody3D
     {
         // Make sprite invisible and disable input
         spritenode.Visible = false;
+        SetProcessInput(false);
+    }
+
+    /// <summary>
+    /// Implements the actions to take when the chest is interacted with.
+    /// </summary>
+    private void interact() 
+    {        
+        areaNode.Monitoring = false;
+        spritenode.Visible = false;
+        GameEvents.RaiseReward(reward);
         SetProcessInput(false);
     }
 }
