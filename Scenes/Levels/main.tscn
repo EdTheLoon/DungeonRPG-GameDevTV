@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://chg8m7b84w8fl"]
+[gd_scene load_steps=25 format=3 uid="uid://chg8m7b84w8fl"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Main.cs" id="1_73dlc"]
 [ext_resource type="PackedScene" uid="uid://bg8wnf8klxgf4" path="res://Scenes/Characters/Player/player.tscn" id="2_3xv8i"]
 [ext_resource type="MeshLibrary" uid="uid://dk1nhvtankown" path="res://Resources/tiles.tres" id="3_21td8"]
+[ext_resource type="Script" path="res://Scripts/General/Camera.cs" id="4_fxkm0"]
 [ext_resource type="PackedScene" uid="uid://byeqfh24ujx7n" path="res://Scenes/Characters/Enemy/enemy.tscn" id="4_vsqaw"]
 [ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="5_f25bg"]
 [ext_resource type="PackedScene" uid="uid://b3c2uaxfybgv4" path="res://Scenes/General/ui.tscn" id="5_jxf8x"]
@@ -167,8 +168,11 @@ navigation_mesh = SubResource("NavigationMesh_fgvnj")
 [node name="Player" parent="." instance=ExtResource("2_3xv8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7277, 2.18423, 3.60886)
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 1, 4.5)
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 1.00467, 4.18225, 0.721594)
+script = ExtResource("4_fxkm0")
+target = NodePath("../Player")
+positionFromTarget = Vector3(0, 2, 6)
 
 [node name="Enemies" type="Node3D" parent="."]
 
@@ -177,7 +181,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.6199, 1.45527, -17.7698)
 curve = SubResource("Curve3D_78hyx")
 
 [node name="EnemyBackRoom" parent="Enemies/LowerBackroom" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34345, 0.816482, 0.533674)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34345, 0.773712, 0.533674)
 stats = Array[Object]([SubResource("Resource_otelr"), SubResource("Resource_jj882")])
 PathNode = NodePath("..")
 
@@ -186,7 +190,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7714, 1.45527, -4.6941)
 curve = SubResource("Curve3D_ohd63")
 
 [node name="EnemyMainDoor" parent="Enemies/LobbyMainDoor" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200897, 0.816482, -4.84297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200897, 0.773712, -4.84297)
 stats = Array[Object]([SubResource("Resource_ws5uv"), SubResource("Resource_lgsl2")])
 PathNode = NodePath("..")
 
@@ -195,7 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.2836, 1.45527, -5.26987)
 curve = SubResource("Curve3D_tht87")
 
 [node name="EnemyLobbyEast" parent="Enemies/LobbyEast" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5547, 0.816482, 5.21027)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5547, 0.773712, 5.21027)
 stats = Array[Object]([SubResource("Resource_oog23"), SubResource("Resource_j6a1o")])
 PathNode = NodePath("..")
 
@@ -208,7 +212,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0468, 5.52266, -12.0872)
 curve = SubResource("Curve3D_qbchp")
 
 [node name="EnemyUpperRoom" parent="Enemies/UpperRoom" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_vsqaw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3854, -3.25091, 8.46778)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3854, -3.29368, 8.46778)
 stats = Array[Object]([SubResource("Resource_wuk37"), SubResource("Resource_bk4i1")])
 PathNode = NodePath("..")
 

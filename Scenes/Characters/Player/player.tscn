@@ -94,57 +94,6 @@ script = ExtResource("2_vgd8v")
 StatType = 1
 StatValue = 3.0
 
-[sub_resource type="Animation" id="Animation_61jay"]
-resource_name = "Dash"
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_8yncu"), ExtResource("33_y5o3l"), ExtResource("34_2fx1p"), ExtResource("35_0vvrx"), ExtResource("36_1xo7t"), ExtResource("37_y0sdg")]
-}
-
-[sub_resource type="Animation" id="Animation_jp68a"]
-resource_name = "Idle"
-length = 1.00001
-loop_mode = 1
-step = 0.0555556
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0555556, 0.111111, 0.166667, 0.222222, 0.277778, 0.333333, 0.388889, 0.444444, 0.5, 0.555556, 0.611111, 0.666667, 0.722222, 0.777778, 0.833333, 0.888889, 0.944444),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_wu27y"), ExtResource("3_7jr4d"), ExtResource("4_b5qe0"), ExtResource("5_sx5hy"), ExtResource("6_yawnm"), ExtResource("7_esyu1"), ExtResource("8_ci8w0"), ExtResource("9_pyla1"), ExtResource("10_84be0"), ExtResource("11_hik0k"), ExtResource("12_ih27p"), ExtResource("13_dubln"), ExtResource("14_rbxug"), ExtResource("15_a580j"), ExtResource("16_ihgia"), ExtResource("17_usl3i"), ExtResource("18_5sn1a"), ExtResource("19_1icfi")]
-}
-
-[sub_resource type="Animation" id="Animation_jbsd2"]
-resource_name = "Move"
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_rrprd"), ExtResource("20_rdgp8"), ExtResource("21_ene3x"), ExtResource("22_xm3i1"), ExtResource("23_5l7vs"), ExtResource("24_bu7t8"), ExtResource("25_aeg15"), ExtResource("26_erqry"), ExtResource("27_ffvc2"), ExtResource("28_h5cua"), ExtResource("29_chtsl"), ExtResource("30_db6y7")]
-}
-
 [sub_resource type="Animation" id="Animation_w8cih"]
 resource_name = "Attack1"
 step = 0.0833333
@@ -205,6 +154,22 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_61jay"]
+resource_name = "Dash"
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_8yncu"), ExtResource("33_y5o3l"), ExtResource("34_2fx1p"), ExtResource("35_0vvrx"), ExtResource("36_1xo7t"), ExtResource("37_y0sdg")]
+}
+
 [sub_resource type="Animation" id="Animation_uoiru"]
 resource_name = "Death"
 step = 0.0666667
@@ -219,6 +184,41 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("64_7xagy"), ExtResource("65_efdli"), ExtResource("66_yp3pu"), ExtResource("67_abnmi"), ExtResource("68_68bbn"), ExtResource("69_uegp4"), ExtResource("70_hs0ra"), ExtResource("71_ghh72"), ExtResource("72_6rffq"), ExtResource("73_dt1qq"), ExtResource("74_b84m4"), ExtResource("75_jcvcn"), ExtResource("76_6rjpq"), ExtResource("77_xwjgj"), ExtResource("3_w2yvx")]
+}
+
+[sub_resource type="Animation" id="Animation_jp68a"]
+resource_name = "Idle"
+length = 1.00001
+loop_mode = 1
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0555556, 0.111111, 0.166667, 0.222222, 0.277778, 0.333333, 0.388889, 0.444444, 0.5, 0.555556, 0.611111, 0.666667, 0.722222, 0.777778, 0.833333, 0.888889, 0.944444),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_wu27y"), ExtResource("3_7jr4d"), ExtResource("4_b5qe0"), ExtResource("5_sx5hy"), ExtResource("6_yawnm"), ExtResource("7_esyu1"), ExtResource("8_ci8w0"), ExtResource("9_pyla1"), ExtResource("10_84be0"), ExtResource("11_hik0k"), ExtResource("12_ih27p"), ExtResource("13_dubln"), ExtResource("14_rbxug"), ExtResource("15_a580j"), ExtResource("16_ihgia"), ExtResource("17_usl3i"), ExtResource("18_5sn1a"), ExtResource("19_1icfi")]
+}
+
+[sub_resource type="Animation" id="Animation_jbsd2"]
+resource_name = "Move"
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_rrprd"), ExtResource("20_rdgp8"), ExtResource("21_ene3x"), ExtResource("22_xm3i1"), ExtResource("23_5l7vs"), ExtResource("24_bu7t8"), ExtResource("25_aeg15"), ExtResource("26_erqry"), ExtResource("27_ffvc2"), ExtResource("28_h5cua"), ExtResource("29_chtsl"), ExtResource("30_db6y7")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oltro"]
@@ -236,7 +236,7 @@ radius = 0.710253
 height = 2.29828
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elj1r"]
-size = Vector3(0.5, 0.5, 0.5)
+size = Vector3(0.5, 0.5, 1)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("SpriteNode", "AnimPlayerNode", "StateMachineNode", "HurtboxNode", "HitboxNode", "HitboxShapeNode")]
 collision_layer = 2
@@ -297,7 +297,6 @@ one_shot = true
 script = ExtResource("83_ksl0h")
 
 [node name="Hitbox" type="Area3D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 0
 
