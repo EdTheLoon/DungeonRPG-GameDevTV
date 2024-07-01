@@ -10,6 +10,8 @@ public partial class PlayerDeathState : PlayerState
 
     private void HandleAnimationFinished(StringName animName)
     {
+        // Raise the OnEndGame event
+        GameEvents.RaiseEndGame();
         // Deletes a node from the SceneTree hierarchy. This deletes the enemy.
         characterNode.QueueFree();
     }
