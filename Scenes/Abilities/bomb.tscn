@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ccsvnfq22xcpb"]
+[gd_scene load_steps=18 format=3 uid="uid://ccsvnfq22xcpb"]
 
 [ext_resource type="Script" path="res://Scripts/Abilities/Bomb.cs" id="1_f4ij7"]
 [ext_resource type="Texture2D" uid="uid://d24l2rua2a1gn" path="res://Assets/Sprites/Effects/Explosion/Bomb.png" id="1_wqm6w"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c5ma6725yjy0" path="res://Assets/Sprites/Effects/Explosion/8.png" id="9_c0x43"]
 [ext_resource type="Texture2D" uid="uid://c0svkfro5wx7t" path="res://Assets/Sprites/Effects/Explosion/9.png" id="10_e0w5b"]
 [ext_resource type="Texture2D" uid="uid://cu56x8jdkuja5" path="res://Assets/Sprites/Effects/Explosion/10.png" id="11_q0hga"]
+[ext_resource type="Script" path="res://Scripts/Abilities/AbilityHitbox.cs" id="13_hbywo"]
 
 [sub_resource type="Animation" id="Animation_4l67m"]
 resource_name = "Expand"
@@ -77,7 +78,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ulcac"]
@@ -87,13 +88,15 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p833h"]
-radius = 4.0
+radius = 3.25
 
 [node name="Bomb" type="Node3D" node_paths=PackedStringArray("animPlayerNode")]
 script = ExtResource("1_f4ij7")
+BombDamage = 20.0
 animPlayerNode = NodePath("AnimationPlayer")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.02
 texture_filter = 0
 texture = ExtResource("1_wqm6w")
 
@@ -105,8 +108,9 @@ libraries = {
 autoplay = "Expand"
 
 [node name="Hitbox" type="Area3D" parent="."]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 0
+script = ExtResource("13_hbywo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("SphereShape3D_p833h")

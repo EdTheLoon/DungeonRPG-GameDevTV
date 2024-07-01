@@ -3,7 +3,9 @@ using System;
 
 public partial class Bomb : Node3D
 {
-    [Export] private AnimationPlayer animPlayerNode;
+    [Export(PropertyHint.Range,"1,30,1")]             
+    public float BombDamage { get; private set; } = 10; // The damage to be applied by the bomb.
+    [Export] private AnimationPlayer animPlayerNode;    // A reference to the scene's AnimationPlayer
 
     public override void _Ready()
     {

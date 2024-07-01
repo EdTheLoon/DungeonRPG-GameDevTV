@@ -61,13 +61,16 @@ public abstract partial class Character : CharacterBody3D
     /// <param name="area">The area that triggered the signal.</param>
     private void HandleHurtboxEntered(Area3D area)
     {
-        // Get the health Stat and a reference to the character
-        StatResource health = GetStatResource(Stat.Health);
-        Character attacker = area.GetOwner<Character>();        
-        StatResource strength = attacker.GetStatResource(Stat.Strength);
+        // If the area is not an instance of AttackHitbox then return.
+        // Otherwise, store a reference to the AttackHitbox in variable hitbox.
+        if (area is not IHitbox hitbox) { return; }
+
+        // We can then call GetDamage() from the AttackHitbox class.
+        float damage = hitbox.GetDamage();
         
-        // Apply damage by using the attacker's strength to decrease health.
-        health.StatValue -= strength.StatValue;
+        // Apply the damage.
+        StatResource health = GetStatResource(Stat.Health);
+        health.StatValue -= damage;
     }
 
     public StatResource GetStatResource(Stat stat)
