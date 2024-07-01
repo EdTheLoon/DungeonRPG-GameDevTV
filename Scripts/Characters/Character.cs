@@ -65,10 +65,9 @@ public abstract partial class Character : CharacterBody3D
         StatResource health = GetStatResource(Stat.Health);
         Character attacker = area.GetOwner<Character>();        
         StatResource strength = attacker.GetStatResource(Stat.Strength);
+        
         // Apply damage by using the attacker's strength to decrease health.
         health.StatValue -= strength.StatValue;
-        GD.Print($"Attacker Strength: {strength.StatValue}");
-        GD.Print($"Health: {health.StatValue}");
     }
 
     public StatResource GetStatResource(Stat stat)
