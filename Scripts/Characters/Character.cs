@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Linq;
 
 public abstract partial class Character : CharacterBody3D
@@ -26,6 +27,11 @@ public abstract partial class Character : CharacterBody3D
     [Export] public Area3D ChaseAreaNode { get; private set; }
     [Export] public Area3D AttackAreaNode { get; private set; }    
 
+    [ExportGroup("Shaders")]
+    [Export] public Timer ShaderTimer { get; protected set; }
+    private ShaderMaterial shader;
+
+
 
     // MEMBER FIELDS --------------------------------------------------------
 
@@ -38,8 +44,13 @@ public abstract partial class Character : CharacterBody3D
 
     public override void _Ready()
     {
+        shader = (ShaderMaterial)SpriteNode.MaterialOverlay; // Cast to ShaderMaterial.
+
+        SpriteNode.TextureChanged += HandleTextureChanged;
         HurtboxNode.AreaEntered += HandleHurtboxEntered;
+        ShaderTimer.Timeout += () => shader.SetShaderParameter("active", false);
     }
+
 
     /// <summary>
     /// Flip's the character sprite horizontally to match movement direction
@@ -53,6 +64,11 @@ public abstract partial class Character : CharacterBody3D
         // Use conditional assignment to set this true or false.
         bool isMovingLeft = Velocity.X < 0;
         SpriteNode.FlipH = isMovingLeft;
+    }
+
+    private void HandleTextureChanged()
+    {
+        shader.SetShaderParameter("tex", SpriteNode.Texture);
     }
 
     /// <summary>
@@ -71,6 +87,9 @@ public abstract partial class Character : CharacterBody3D
         // Apply the damage.
         StatResource health = GetStatResource(Stat.Health);
         health.StatValue -= damage;
+
+        shader.SetShaderParameter("active", true);
+        ShaderTimer.Start();
     }
 
     public StatResource GetStatResource(Stat stat)

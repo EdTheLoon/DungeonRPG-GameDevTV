@@ -113,3 +113,4 @@ script = ExtResource("13_hbywo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("SphereShape3D_p833h")
+disabled = true
