@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://byeqfh24ujx7n"]
+[gd_scene load_steps=125 format=3 uid="uid://byeqfh24ujx7n"]
 
 [ext_resource type="Texture2D" uid="uid://depqoslw82tpe" path="res://Assets/Sprites/Characters/Enemy Knight/Walking/0_Demons_of_Darkness_Walking_010.png" id="1_8gyme"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy.cs" id="1_62sw8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="2_frltb"]
 [ext_resource type="Texture2D" uid="uid://dfcwswtndgttb" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="2_l0kk8"]
 [ext_resource type="Texture2D" uid="uid://dek0k6ulv7734" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_001.png" id="3_xgmde"]
+[ext_resource type="Shader" path="res://Shaders/character_hurt.gdshader" id="3_xk0o6"]
 [ext_resource type="Texture2D" uid="uid://xpvsu3xxm2pb" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_002.png" id="4_mmtob"]
 [ext_resource type="Texture2D" uid="uid://c4vhbs277gj8g" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_003.png" id="5_76udi"]
 [ext_resource type="Texture2D" uid="uid://vrj7hlsjfgbe" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_004.png" id="6_knf0v"]
@@ -120,6 +121,13 @@ StatValue = 20.0
 script = ExtResource("2_frltb")
 StatType = 1
 StatValue = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_687gg"]
+render_priority = 1
+shader = ExtResource("3_xk0o6")
+shader_parameter/active = false
+shader_parameter/flash_colour = Color(0.588235, 0, 0, 1)
+shader_parameter/tex = ExtResource("2_l0kk8")
 
 [sub_resource type="Animation" id="Animation_0vwrf"]
 resource_name = "Attack"
@@ -282,6 +290,7 @@ AttackAreaNode = NodePath("StateAreas/AttackArea")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182111, 0)
+material_overlay = SubResource("ShaderMaterial_687gg")
 offset = Vector2(0, -40)
 pixel_size = 0.004
 texture_filter = 0
