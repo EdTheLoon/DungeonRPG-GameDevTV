@@ -25,9 +25,10 @@ public partial class UIController : Control
 
     private void HandleStartPressed()
     {
-        // Unpause the entire SceneTree. Hide the Start screen UI
+        // Unpause the entire SceneTree. Hide the Start screen UI. Show the Stats UI.
         GetTree().Paused = false;
         containers[ContainerType.Start].Visible = false;
+        containers[ContainerType.Stats].Visible = true;
 
         // Raise the OnStartGame event
         GameEvents.RaiseStartGame();

@@ -4,9 +4,9 @@ using Godot;
 [GlobalClass]
 public partial class StatResource : Resource
 {
-    // A variable that stores a method to be carried out when the stat
-    // reaches zero.
+    // Events
     public event Action OnZero;
+    public event Action OnUpdate;
     
     // What type of Stat is this? Uses an enum.
     [Export] public Stat StatType { get; private set; }
@@ -20,6 +20,8 @@ public partial class StatResource : Resource
         {
             // Update the stat and clamp so it doesn't fall below zero.
             _statValue = Mathf.Clamp(value, 0, Mathf.Inf);
+
+            OnUpdate?.Invoke();
 
             // If stat falls below zero then do something.
             if (_statValue == 0) 
