@@ -258,6 +258,7 @@ ShaderTimer = NodePath("ShaderTimer")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 material_overlay = SubResource("ShaderMaterial_elwuc")
 pixel_size = 0.004
+alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("39_yp6ct")
 

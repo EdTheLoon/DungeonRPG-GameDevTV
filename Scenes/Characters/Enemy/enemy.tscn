@@ -295,6 +295,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182111, 0)
 material_overlay = SubResource("ShaderMaterial_687gg")
 offset = Vector2(0, -40)
 pixel_size = 0.004
+alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("56_mbhrb")
 
@@ -317,7 +318,6 @@ radius = 1.0
 neighbor_distance = 10.0
 avoidance_layers = 4
 avoidance_mask = 4
-debug_enabled = true
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("100_8p5df")]
 currentState = NodePath("IdleState")

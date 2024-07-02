@@ -29,6 +29,16 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:barrel_large_decorated": {
+"generate/physics": true,
+"physics/physics_material_override": null,
+"physics/shape_type": 5,
+"primitive/height": 2.5,
+"primitive/position": Vector3(0, 1.25, 0)
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

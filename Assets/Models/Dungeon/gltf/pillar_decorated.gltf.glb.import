@@ -29,6 +29,17 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:pillar_decorated": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 5,
+"primitive/height": 4.0,
+"primitive/position": Vector3(0, 2, 0),
+"primitive/radius": 0.8
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
