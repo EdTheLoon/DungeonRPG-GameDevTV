@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://chg8m7b84w8fl"]
+[gd_scene load_steps=58 format=3 uid="uid://chg8m7b84w8fl"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Main.cs" id="1_73dlc"]
 [ext_resource type="PackedScene" uid="uid://bg8wnf8klxgf4" path="res://Scenes/Characters/Player/player.tscn" id="2_3xv8i"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cm8ihhiom48sk" path="res://Assets/Models/Dungeon/gltf/table_long_tablecloth_decorated_A.gltf.glb" id="16_3d15u"]
 [ext_resource type="PackedScene" uid="uid://876ydfx65f5u" path="res://Assets/Models/Dungeon/gltf/chair.gltf.glb" id="23_6lf08"]
 [ext_resource type="PackedScene" uid="uid://c48e333nii73r" path="res://Scenes/General/torch.tscn" id="27_ki4ma"]
+[ext_resource type="PackedScene" uid="uid://bl7sobpxp3vvs" path="res://Scenes/General/candle.tscn" id="28_j5gqe"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_pj0o3"]
 rayleigh_color = Color(0.482771, 0.0678228, 0.138793, 1)
@@ -272,6 +273,7 @@ navigation_mesh = SubResource("NavigationMesh_fgvnj")
 metadata/_edit_lock_ = true
 
 [node name="Props" type="Node3D" parent="Environment" groups=["NavigationMeshes"]]
+metadata/_edit_lock_ = true
 
 [node name="barrel_large_decorated_gltf" parent="Environment/Props" instance=ExtResource("3_jtmli")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 11.4151, 1.03824, -1.46893)
@@ -522,6 +524,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 3.07, -6.262)
 [node name="Torch6" parent="Environment/WallTorches" instance=ExtResource("27_ki4ma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 3.07, -6.262)
 
+[node name="Candles" type="Node3D" parent="Environment"]
+process_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Candle" parent="Environment/Candles" instance=ExtResource("28_j5gqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.41506, 2.75128, -5.38511)
+
+[node name="Candle2" parent="Environment/Candles" instance=ExtResource("28_j5gqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7018, 1.89739, -5.21071)
+
+[node name="Candle3" parent="Environment/Candles" instance=ExtResource("28_j5gqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.2427, 2.05268, -14.434)
+
+[node name="Candle7" parent="Environment/Candles" instance=ExtResource("28_j5gqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5174, 2.05268, -14.8926)
+
+[node name="Candle4" parent="Environment/Candles" instance=ExtResource("28_j5gqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.7892, 2.05268, -15.8999)
+
+[node name="Candle5" parent="Environment/Candles" instance=ExtResource("28_j5gqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.1527, 2.05268, -15.1879)
+
+[node name="Candle6" parent="Environment/Candles" instance=ExtResource("28_j5gqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.7077, 2.05268, -15.9522)
+
+[node name="Candle8" parent="Environment/Candles" instance=ExtResource("28_j5gqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.42111, 5.92673, -17.2132)
+
+[node name="Candle9" parent="Environment/Candles" instance=ExtResource("28_j5gqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9709, 6.00206, -16.2834)
+
 [node name="Player" parent="." instance=ExtResource("2_3xv8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7277, 2.18423, 3.60886)
 metadata/_edit_lock_ = true
@@ -533,6 +566,7 @@ far = 500.0
 script = ExtResource("4_fxkm0")
 target = NodePath("../Player")
 positionFromTarget = Vector3(0, 2, 4)
+metadata/_edit_lock_ = true
 
 [node name="UI" parent="." instance=ExtResource("5_jxf8x")]
 metadata/_edit_lock_ = true
