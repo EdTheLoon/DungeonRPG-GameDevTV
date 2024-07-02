@@ -23,6 +23,11 @@ public partial class PlayerAttackState : PlayerState
 
     protected override void EnterState()
     {
+        // Flip our sprite to match the attack direction being held. 
+        // This accounts for a bug where we can't turn around if an enemy is blocking
+        // our back because of a collision.
+        FlipSprite();
+
         // Play animation. Should be Attack1 or Attack2
         // Uses -1 for blend.
         // Plays animation at 1.5x speed
@@ -67,7 +72,7 @@ public partial class PlayerAttackState : PlayerState
     {
         // Use ternary operator to determine which position the hitbox should be in.
         Vector3 newHitboxPosition = characterNode.SpriteNode.FlipH ? Vector3.Left : Vector3.Right;
-        float distanceMultiplier = 1f;
+        float distanceMultiplier = 1.25f;
         characterNode.HitboxNode.Position = newHitboxPosition * distanceMultiplier;
 
         // Enable the hitbox

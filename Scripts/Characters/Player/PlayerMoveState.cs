@@ -21,7 +21,7 @@ public partial class PlayerMoveState : PlayerState
         characterNode.MoveAndSlide();
 
         // Flip will flip the sprite horizontally to match movement direction.
-        characterNode.Flip();
+        FlipSprite();
     }
 
     // Override the engine's Input process so we can carry out our own input handling.

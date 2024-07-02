@@ -20,6 +20,13 @@ public abstract partial class PlayerState : CharacterState
         }
     }
 
+    protected void FlipSprite()
+    {
+        // If player direction equals zero then return
+        if (characterNode.direction.X == 0) { return; }
+        characterNode.SpriteNode.FlipH = characterNode.direction.X < 0;
+    }
+
     /// <summary>
     /// This method is added to a StatResource.OnZero so that it can be called
     /// when the Enemy's Health falls to zero.
