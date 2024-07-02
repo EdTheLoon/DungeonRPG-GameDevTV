@@ -40,7 +40,7 @@ public abstract partial class EnemyState : CharacterState
         characterNode.Velocity = characterNode.GlobalPosition.DirectionTo(destination);
         characterNode.Velocity *= MovementSpeed;
         characterNode.MoveAndSlide();
-        characterNode.Flip();
+        characterNode.FlipFromVelocity();
     }
 
     /// <summary>

@@ -65,7 +65,7 @@ public abstract partial class Character : CharacterBody3D
     /// <summary>
     /// Flip's the character sprite horizontally to match movement direction
     /// </summary>
-    public void Flip()
+    public void FlipFromVelocity()
     {
         bool isNotMovingHorizontally = Velocity.X == 0;
 

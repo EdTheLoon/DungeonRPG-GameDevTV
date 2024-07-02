@@ -20,7 +20,7 @@ public abstract partial class PlayerState : CharacterState
         }
     }
 
-    protected void FlipSprite()
+    protected void FlipFromInput()
     {
         // If player direction equals zero then return
         if (characterNode.direction.X == 0) { return; }

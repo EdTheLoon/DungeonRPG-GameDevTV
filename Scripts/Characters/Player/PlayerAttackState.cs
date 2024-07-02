@@ -26,7 +26,7 @@ public partial class PlayerAttackState : PlayerState
         // Flip our sprite to match the attack direction being held. 
         // This accounts for a bug where we can't turn around if an enemy is blocking
         // our back because of a collision.
-        FlipSprite();
+        FlipFromInput();
 
         // Play animation. Should be Attack1 or Attack2
         // Uses -1 for blend.

@@ -31,7 +31,7 @@ public partial class PlayerDashState : PlayerState
         characterNode.MoveAndSlide();
 
         // Flip will flip the sprite horizontally to match movement direction.
-        characterNode.Flip();
+        characterNode.FlipFromVelocity();
     }
 
     // Override the engine's Notifications process so we can add to it.
