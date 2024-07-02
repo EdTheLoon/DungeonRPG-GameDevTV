@@ -22,6 +22,7 @@ public class GameConstants {
     // UI Inputs
     public const string INPUT_PAUSE = "Pause";
     public const string INPUT_INTERACT = "Interact";
+    public const string INPUT_FPSTOGGLE = "FPSToggle";
 
     // Notifications
     public const int NOTIFICATION_ENTER_STATE = 5001;

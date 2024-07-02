@@ -33,16 +33,21 @@ public partial class UIController : Control
 
     public override void _Input(InputEvent @event)
     {
-        if (!canPause) { return; }
-
-        if (!Input.IsActionJustPressed(GameConstants.INPUT_PAUSE))
+        // FPS TOGGLE
+        if (Input.IsActionJustPressed(GameConstants.INPUT_FPSTOGGLE))
         {
+            containers[ContainerType.FPS].Visible = ! containers[ContainerType.FPS].Visible;
             return;
         }
-        
-        containers[ContainerType.Stats].Visible = GetTree().Paused;
-        GetTree().Paused = !GetTree().Paused;
-        containers[ContainerType.Pause].Visible = GetTree().Paused;
+
+        // GAME PAUSING
+        if (!canPause) { return; }
+        if (Input.IsActionJustPressed(GameConstants.INPUT_PAUSE))
+        {
+            containers[ContainerType.Stats].Visible = GetTree().Paused;
+            GetTree().Paused = !GetTree().Paused;
+            containers[ContainerType.Pause].Visible = GetTree().Paused;
+        }
     }
 
     private void HandleStartPressed()
