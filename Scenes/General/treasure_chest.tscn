@@ -18,7 +18,10 @@ areaNode = NodePath("Area3D")
 spritenode = NodePath("InteractiveIcon")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-pixel_size = 0.05
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.536505, 0)
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+pixel_size = 0.1
+alpha_cut = 2
 texture_filter = 0
 texture = ExtResource("1_8e31f")
 region_enabled = true
@@ -26,12 +29,13 @@ region_rect = Rect2(16, 7, 16, 23)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0542603, 0)
+visible = false
 shape = SubResource("BoxShape3D_wuik7")
 
 [node name="InteractiveIcon" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82905, 0)
 visible = false
-pixel_size = 0.03
+pixel_size = 0.04
 texture_filter = 0
 texture = ExtResource("2_1gjno")
 region_enabled = true
@@ -43,4 +47,5 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+visible = false
 shape = SubResource("CylinderShape3D_vbi3h")

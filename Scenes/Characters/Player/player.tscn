@@ -270,6 +270,7 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0162532, 0.00446844, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_y13ol")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("38_apmxw")]
