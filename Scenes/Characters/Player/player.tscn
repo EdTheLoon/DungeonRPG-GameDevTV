@@ -234,7 +234,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y13ol"]
-radius = 0.710253
+radius = 0.660057
 height = 2.29828
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elj1r"]
@@ -268,7 +268,7 @@ libraries = {
 "": SubResource("AnimationLibrary_oltro")
 }
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShapeCapsule" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0162532, 0.00446844, 0)
 shape = SubResource("CapsuleShape3D_y13ol")
 
@@ -310,6 +310,7 @@ one_shot = true
 script = ExtResource("83_ksl0h")
 
 [node name="Hitbox" type="Area3D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("86_p8rgk")
@@ -319,7 +320,6 @@ shape = SubResource("BoxShape3D_elj1r")
 disabled = true
 
 [node name="Hurtbox" type="Area3D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 4
 
