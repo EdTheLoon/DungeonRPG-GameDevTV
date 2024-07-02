@@ -13,10 +13,10 @@ lifetime_randomness = 1.0
 emission_shape = 3
 emission_box_extents = Vector3(0.05, 0.05, 0.05)
 direction = Vector3(0, 1, 0)
-spread = 25.0
 initial_velocity_min = 0.25
 initial_velocity_max = 0.5
 gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
 scale_min = 0.5
 color_ramp = SubResource("GradientTexture1D_hfy45")
 
@@ -38,14 +38,20 @@ height = 0.1
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.753684, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.526019, 0)
 light_color = Color(0.85098, 0.486275, 0.262745, 1)
 light_energy = 3.0
 light_volumetric_fog_energy = 0.0
 light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.415
+distance_fade_enabled = true
+distance_fade_begin = 20.0
+distance_fade_shadow = 15.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.509821, 0)
-amount = 10
+amount = 15
+visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
 process_material = SubResource("ParticleProcessMaterial_wvbld")
 draw_pass_1 = SubResource("SphereMesh_qtgr7")

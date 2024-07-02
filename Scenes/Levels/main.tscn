@@ -43,7 +43,7 @@ background_color = Color(0.688914, 0.26335, 0.723314, 1)
 sky = SubResource("Sky_3c4ds")
 sky_rotation = Vector3(0, -2.54993, 0)
 fog_light_color = Color(0.749848, 0.806792, 0.843176, 1)
-volumetric_fog_density = 0.2
+volumetric_fog_density = 0.1
 volumetric_fog_albedo = Color(1, 0.80369, 0.76742, 1)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_fgvnj"]
@@ -206,6 +206,7 @@ script = ExtResource("2_ii3av")
 metadata/_edit_lock_ = true
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Environment"]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_fgvnj")
 metadata/_edit_lock_ = true
 
@@ -641,6 +642,5 @@ stats = Array[Object]([SubResource("Resource_f6m6f"), SubResource("Resource_jh0j
 PathNode = NodePath("..")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
-visible = false
 occluder = ExtResource("30_svfc2")
 bake_mask = 4294966273
