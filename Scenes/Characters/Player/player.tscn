@@ -270,7 +270,6 @@ libraries = {
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0162532, 0.00446844, 0)
-visible = false
 shape = SubResource("CapsuleShape3D_y13ol")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("38_apmxw")]
@@ -283,13 +282,19 @@ script = ExtResource("32_fi6xd")
 [node name="MoveState" type="Node" parent="StateMachine"]
 script = ExtResource("33_c5xb3")
 
-[node name="DashState" type="Node" parent="StateMachine" node_paths=PackedStringArray("dashTimerNode")]
+[node name="DashState" type="Node" parent="StateMachine" node_paths=PackedStringArray("dashTimerNode", "dashCooldownTimerNode")]
 script = ExtResource("41_xrgfh")
-dashTimerNode = NodePath("Timer")
+dashTimerNode = NodePath("DurationTimer")
+dashCooldownTimerNode = NodePath("CooldownTimer")
 bombScene = ExtResource("83_nhnen")
 
-[node name="Timer" type="Timer" parent="StateMachine/DashState"]
+[node name="DurationTimer" type="Timer" parent="StateMachine/DashState"]
 wait_time = 0.4
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="StateMachine/DashState"]
+process_mode = 3
+wait_time = 3.0
 one_shot = true
 
 [node name="AttackState" type="Node" parent="StateMachine" node_paths=PackedStringArray("comboTimerNode")]

@@ -2,18 +2,22 @@ using Godot;
 
 public partial class PlayerDashState : PlayerState
 {
-    [Export] private Timer dashTimerNode;   // Allows us to refer to the Timer node assigned in the engine.
-    [Export(PropertyHint.Range,"1,20")]     // PropertyHint.Range allows us to hint at a suitable range
-    private float dashSpeed = 10;           // Allow us to set the dash speed in engine. 
-    [Export] private PackedScene bombScene; // A reference to the packed Bomb scene so we can instance new bombs.
+    [Export] private Timer dashTimerNode;           // Allows us to refer to the Timer node assigned in the engine.
+    [Export] private Timer dashCooldownTimerNode;    // A reference to the Timer node assigned in the editor for cooldowns.
+    [Export(PropertyHint.Range,"1,20")]             // PropertyHint.Range allows us to hint at a suitable range
+    private float dashSpeed = 10;                   // Allow us to set the dash speed in engine. 
+    [Export] private PackedScene bombScene;         // A reference to the packed Bomb scene so we can instance new bombs.
 
     // Override the engine's Ready process so we can do our own initialisation.
     public override void _Ready()
     {
         base._Ready();
 
-        // Subscribe to the Timeout signal sent by the DashTimerNode
+        // Subscribe to the Timeout signals
         dashTimerNode.Timeout += HandleDashTimeout;
+
+        // Dash transition handling
+        CanTransition = () => dashCooldownTimerNode.IsStopped();
 
         // We don't want the Physics and Input processes to run when the State is loaded.
         SetPhysicsProcess(false);
@@ -61,6 +65,7 @@ public partial class PlayerDashState : PlayerState
     // state back to PlayerIdleState.
     private void HandleDashTimeout()
     {
+        dashCooldownTimerNode.Start();
         characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
     }
 }

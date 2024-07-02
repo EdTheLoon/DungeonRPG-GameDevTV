@@ -1,3 +1,5 @@
+using System;
+using System.Reflection.Metadata.Ecma335;
 using Godot;
 
 // Make this an abstract class so that it is not accidentally instanced.
@@ -5,6 +7,7 @@ public abstract partial class CharacterState : Node
 {
     // Stores a reference to the Character's root node.
     protected Character characterNode;
+    public Func<bool> CanTransition = () => true;
     
     // Override the engine's Ready process so we can do our own initialisation.
     public override void _Ready()
